@@ -19,7 +19,6 @@ function getProcessedJSON(){
  */
 function getPositionXML(){
     $user_ip = $_SERVER['REMOTE_ADDR'];
-    $user_ip = "90.7.232.150";
     $geoData = @unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=$user_ip&apiKey=2fa6e744-f73b-4f7e-b835-a9eae26360a2"));
     return $geoData;
 }
