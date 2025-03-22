@@ -1,0 +1,243 @@
+/* Style moderne et épuré */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.navin {
+    position: fixed;
+    left: 10%;
+    transform: translateX(-50%);
+    background: rgba(192, 192, 192, 0.8);
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2); /* Ombre */
+    list-style: none;
+}
+
+.navin li{
+    color : green;
+}
+
+/* Effet de survol */
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+a{
+    display:block;
+    text-align: center;
+    margin: auto;
+}
+section {
+    width: 65%;
+    margin: 20px auto;
+    text-align: left;
+    padding: 20px;
+}
+
+
+.loc{
+    padding : 20px;
+    color: white;
+    text-align: center;
+    display: block;
+    margin: 25px auto auto auto;
+    background-color: #27272e;
+    border-radius: 40px;
+}
+
+.loc p{
+    font-size: 20px;
+    color: #C4EA63FF;
+}
+
+:root {
+    --primary-color: #2B2D42;
+    --secondary-color: #8D99AE;
+    --background-color: #EDF2F4;
+    --text-color: #27272e;
+    --accent-color: #EF233C;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #3e3f94;
+    font-size: 36px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+h2::after {
+    position: absolute;
+    content: "";
+    top: 100%; /* se place sous le h2 */
+    left: 0;
+    width: 50px;
+    height: 4px;
+    background-color: #3e3f94;
+    border-radius: 2px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+footer::before {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 2px;
+    background-color: #555;
+    margin: 0 auto 10px auto;
+    opacity: 0.5;
+}
+
+.img-illustration{
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;
+}
+
+.double-content-horizontal {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 30px;
+}
+
+.double-content-vertical {
+    display: table-column;
+}
+
+figure{
+    margin-top:2%;
+    margin-bottom:2%;
+    text-align: center;
+}
+
+.content-flex {
+    justify-content: center; 
+    align-items: center;
+    display: flex;
+    gap: 30px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: black;
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+}
+
+.container {
+    width: 85%;
+    margin: auto;
+    max-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HEADER (NAVBAR) */
+header {
+    position: sticky;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 90px; /* Hauteur de la barre */
+    background-color: #3e3f94; /* Couleur de fond */
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* LOGO + NAVIGATION */
+.nav-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px; /* Taille du logo */
+    width: auto;
+    margin-right: 10px; /* Espace entre le logo et le menu */
+}
+
+/* NAVIGATION */
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* ESPACE SOUS LE HEADER POUR ÉVITER LE CHEVAUCHEMENT */
+.content {
+    margin-top: 100px; /* Ajoute un espace pour éviter que le texte soit caché */
+    padding: 20px;
+}
+
+
+.normalTab th, .normalTab td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.normalTab th {
+    background: #333;
+    color: white;
+}
+
+.ipTab {
+    font-size: 25px;
+    margin: 0 auto;
+    align-items: center;
+    width: 50%;
+}
+
+.ipTab th, td {
+    padding: 10px;
+    text-align: center;
+}
