@@ -24,9 +24,13 @@ $url = $tabJson["url"];
             <figcaption><em><?= $titleJson ?></em></figcaption>
         </figure>
     <?php else: ?>
-        <video title="<?= $titleJson ?>">
-            <source src="<?= htmlspecialchars($url) ?>">
-        </video>
+        <iframe
+            width="560"
+            height="315"
+            src="<?= htmlspecialchars($url) ?>"
+            title="<?= htmlspecialchars($titleJson) ?>"
+            allowfullscreen>
+        </iframe>
     <?php endif; ?>
     <div class="double-content-horizontal">
         <table class="normalTab">
