@@ -1,4 +1,3 @@
-/* Style moderne et épuré */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 .navin {
@@ -162,14 +161,13 @@ body {
     box-sizing: border-box;
 }
 
-/* HEADER (NAVBAR) */
 header {
     position: sticky;
     top:0;
     left: 0;
     width: 100%;
-    height: 90px; /* Hauteur de la barre */
-    background-color: #3e3f94; /* Couleur de fond */
+    height: 90px;
+    background-color: #3e3f94;
     color: white;
     display: flex;
     align-items: center;
@@ -178,16 +176,16 @@ header {
     z-index: 1000;
 }
 
-/* LOGO + NAVIGATION */
+
 .nav-container {
     display: flex;
     align-items: center;
 }
 
 .logo img {
-    height: 40px; /* Taille du logo */
+    height: 40px;
     width: auto;
-    margin-right: 10px; /* Espace entre le logo et le menu */
+    margin-right: 10px;
 }
 
 /* NAVIGATION */
@@ -212,9 +210,8 @@ nav ul li a:hover {
     color: #ffcc00;
 }
 
-/* ESPACE SOUS LE HEADER POUR ÉVITER LE CHEVAUCHEMENT */
 .content {
-    margin-top: 100px; /* Ajoute un espace pour éviter que le texte soit caché */
+    margin-top: 100px;
     padding: 20px;
 }
 

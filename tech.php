@@ -71,6 +71,8 @@ $url = $tabJson["url"];
 </section>
 <section>
     <h2>Géolocalisation avec adresse IP</h2>
+    <article>
+        <h3>Format PHP</h3>
     <div class="loc">
         <p>
             Dans cette partie, nous utiliserons l'API <b>Geoplugin</b> afin de localiser votre position.
@@ -110,6 +112,88 @@ $url = $tabJson["url"];
             </table>
         <?php endif; ?>
     </div>
+    </article>
+
+    <article>
+        <h3>Format JSON</h3>
+        <div class="loc">
+            <p>
+                Dans cette partie, nous utiliserons l'API <b>ipinfo</b> afin de localiser votre position.
+            </p>
+            <?php
+            $geoJson = getPositionJSON();
+            $ip = $geoJson["ip"];
+            $country = $geoJson["country"];
+            $region = $geoJson["region"];
+            $latitude = $geoJson["loc"];
+            $postal = $geoJson["postal"];
+            ?>
+                <table class="ipTab">
+                    <tbody>
+                    <tr>
+                        <td>Adresse IP</td>
+                        <td><?= $ip ?></td>
+                    </tr>
+                    <tr>
+                        <td>Pays</td>
+                        <td><?= $country ?></td>
+                    </tr>
+                    <tr>
+                        <td>Region</td>
+                        <td><?= $region ?></td>
+                    </tr>
+                    <tr>
+                        <td>Coordonnée GPS</td>
+                        <td><?= $latitude ?></td>
+                    </tr>
+                    <tr>
+                        <td>Code postal</td>
+                        <td><?= $postal ?></td>
+                    </tr>
+                    </tbody>
+                </table>
+        </div>
+    </article>
+    <article>
+        <h3>Format XML</h3>
+        <div class="loc">
+            <p>
+                Dans cette partie, nous utiliserons l'API <b>WhatisMyIP</b> afin de localiser votre position.
+            </p>
+            <?php
+            $geoXML2 = getPositionXML2();
+            $ip = $geoXML2->server_data->ip;
+            $country = $geoXML2->server_data->country;
+            $region = $geoXML2->server_data->region;
+            $latitude = $geoXML2->server_data->latitude;
+            $longitude = $geoXML2->server_data->longitude;
+            ?>
+            <table class="ipTab">
+                <tbody>
+                <tr>
+                    <td>Adresse IP</td>
+                    <td><?= $ip ?></td>
+                </tr>
+                <tr>
+                    <td>Pays</td>
+                    <td><?= $country ?></td>
+                </tr>
+                <tr>
+                    <td>Region</td>
+                    <td><?= $region ?></td>
+                </tr>
+                <tr>
+                    <td>Latitude</td>
+                    <td><?= $latitude ?></td>
+                </tr>
+                <tr>
+                    <td>Longitude</td>
+                    <td><?= $longitude ?></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </article>
 </section>
 <?php
 include "includes/footer.inc.php";

@@ -22,4 +22,80 @@ function getPositionXML(){
     $geoData = @unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=$user_ip&apiKey=2fa6e744-f73b-4f7e-b835-a9eae26360a2"));
     return $geoData;
 }
+
+/**
+ * Fonction qui renvoie un tableau (initialement en JSON) traité
+ * Ce fichier XML est issu de l'API IPinfo permettant de localiser une adresse IP
+ * @return mixed le tableau à clés
+ */
+function getPositionJSON(){
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $url = "https://ipinfo.io/".$ip."/geo";
+    $geoData = file_get_contents($url);
+    $resultat = json_decode($geoData, true);
+    return $resultat;
+}
+
+/**
+ * Fonction qui renvoie un tableau (initialement en XML) traité
+ * Ce fichier XML est issu de l'API Whatismyip permettant de localiser une adresse IP
+ * @return mixed le tableau à clés
+ */
+function getPositionXML2(){
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $url = "https://api.whatismyip.com/ip-address-lookup.php?key="."fcddc989ff4010c22b4b37a67d100da1"."&input=".$ip.".235&output=xml";
+    $geoData = simplexml_load_string(file_get_contents($url));
+    return $geoData;
+}
+
+function readRegionCSV($regionName){
+    $path = "csv/v_region_2024.csv";
+    $fic = fopen($path, "r");
+    if($fic !== false){
+        while(($line = fgetcsv($fic, 1000, ",")) !== false){
+            if($line[5] == $regionName){
+                return $line;
+            }
+        }
+    }
+    else{
+        echo "Erreur : Ouverture impossible";
+    }
+
+}
+
+function getCodeRegion($region){
+    return $region[0];
+}
+
+function getDepartements($regionCode){
+    $path = "csv/v_departements_2024.csv";
+    $fic = fopen($path, "r");
+    $departements = array();
+    if($fic !== false){
+        while(($line = fgetcsv($fic, 1000, ",")) !== false){
+            if($line[2] == $regionCode){
+                $departements[] = $line;
+            }
+        }
+        return $departements;
+    }
+    else{
+        echo "Erreur : Ouverture impossible";
+    }
+}
+
+function getVilles($departementCode){
+    $path = "csv/v_villes_2024.csv";
+    $fic = fopen($path, "r");
+    $villes = array();
+    if($fic !== false){
+        while(($line = fgetcsv($fic, 1000, ",")) !== false){
+            if($line[7] == $departementCode){
+                $villes[] = $line;
+            }
+        }
+    }
+    return $villes;
+}
 ?>

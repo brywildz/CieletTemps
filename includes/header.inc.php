@@ -6,7 +6,7 @@
         ?>
         <link rel="stylesheet" href="<?=$style?>"/>
         <title><?= $title ?></title>
-        <link rel="icon" href="images/favicon.png" type="image/png">
+        <link rel="icon" href="images/favicon.png" type="image/png"/>
 </head>
 <body>
     <header>
