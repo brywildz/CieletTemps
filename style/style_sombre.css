@@ -1,3 +1,7 @@
+a{
+    color: #48aafb;
+}
+
 .meteoS{
     display: block;
     margin : 0 auto;
@@ -8,10 +12,6 @@
 
 p {
     color: #dddddd;
-}
-
-a {
-    color: #0070c8;
 }
 
 .meteo-in{

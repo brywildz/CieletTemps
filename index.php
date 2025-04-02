@@ -4,9 +4,9 @@ include "includes/header.inc.php";
 ?>
 
 <section style="text-align: center; padding: 2rem;">
-    <h1>Météo World 🌍</h1>
+    <h1>Ciel&Temps 🌍</h1>
     <p>
-        Bienvenue sur <strong>Météo World</strong>, votre plateforme météo intelligente et interactive.
+        Bienvenue sur <strong>Ciel&Temps</strong>, votre plateforme météo intelligente et interactive.
         Ce site vous permet de consulter en temps réel les <strong>prévisions météo</strong> selon votre <em>région</em>, <em>département</em> ou <em>ville</em>.
         Grâce à notre système de <strong>géolocalisation</strong>, vous pouvez connaître immédiatement la météo là où vous vous trouvez.
     </p>

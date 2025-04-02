@@ -16,11 +16,11 @@
 <body>
     <header>
         <div class="logo">
-            <a href="index.php"><img src="images/grand.png"/></a>
+            <a href="index.php"><img src="images/grand.png" alt="icone du site"/></a>
         </div>
         <nav>
             <ul>
-                <li><a href=meteo.php>Prévisions</a></li>
+                <li><a href="meteo.php">Prévisions</a></li>
             </ul>
         </nav>
 

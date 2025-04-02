@@ -181,4 +181,46 @@ function getWeather($city){
     $tabResult = json_decode($jsonData, true);
     return $tabResult;
 }
+
+/**
+ * Fonction traitant les différentes requêtes GET liée au choix de la region et du département.
+ * Elle centralise la création du formulaire pour ne pas surcharger la page meteo.php
+ * @return string|null le formulaire dépendamment de la requête
+ */
+function traitementGET(){
+    $form = null;
+    if (isset($_GET["region"]) && $_GET["region"] != null) {
+        $region = readRegionCSV($_GET["region"]);
+        $regionCode = getCodeRegion($region);
+        $departments = getDepartments($regionCode);
+        $form = buildSelect($departments, "department");
+    }
+    if (isset($_GET["department"]) && $_GET["department"] != null) {
+        $departmentCode = getDepartmentCode($_GET["department"]);
+        $cities = getCities($departmentCode);
+        $form = buildSelect($cities, "city");
+    }
+    return $form;
+}
+
+/**
+ * Fonction gérant les requête GET lié à la météo d'une ville.
+ * Elle crée un tableau associatif regroupant les différentes information à afficher
+ * @return array, le tableau des informations météo d'une ville choisie
+ */
+function traitementMeteo(){
+    $weatherTab = array();
+    $weatherTab["cond"] = false;
+    if (isset($_GET["city"]) && $_GET["city"] != null) {
+        $weather = getWeather($_GET["city"]);
+        $weatherTab["cond"] = true;
+        $weatherTab["city"] = $weather["location"]["name"];
+        $weatherTab["region"] = $weather["location"]["region"];
+        $weatherTab["deg"] = $weather["current"]["temp_c"];
+        $weatherTab["feel"] = $weather["current"]["feelslike_c"];
+        $weatherTab["day"] = $weather["current"]["is_day"];
+        $weatherTab["rain"] = $weather["current"]["precip_mm"];
+    }
+    return $weatherTab;
+}
 ?>
