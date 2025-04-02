@@ -68,34 +68,73 @@ function getCodeRegion($region){
     return $region[0];
 }
 
-function getDepartements($regionCode){
-    $path = "csv/v_departements_2024.csv";
+function getDepartments($regionCode){
+    $path = "csv/v_departement_2024.csv";
     $fic = fopen($path, "r");
-    $departements = array();
+    $departments = array();
     if($fic !== false){
         while(($line = fgetcsv($fic, 1000, ",")) !== false){
-            if($line[2] == $regionCode){
-                $departements[] = $line;
+            if($line[1] == $regionCode){
+                $departments[] = $line[4];
             }
         }
-        return $departements;
     }
     else{
         echo "Erreur : Ouverture impossible";
     }
+    return $departments;
 }
 
-function getVilles($departementCode){
-    $path = "csv/v_villes_2024.csv";
+function getDepartmentCode($departmentName){
+    $path = "csv/v_departement_2024.csv";
+    $fic = fopen($path, "r");
+    if($fic !== false){
+        while(($line = fgetcsv($fic, 1000, ",")) !== false){
+            if($line[4] == $departmentName){
+                return $line[0];
+            }
+        }
+    }
+    return null;
+}
+
+function getCities($departmentCode){
+    $path = "csv/v_ville_2024.csv";
     $fic = fopen($path, "r");
     $villes = array();
     if($fic !== false){
         while(($line = fgetcsv($fic, 1000, ",")) !== false){
-            if($line[7] == $departementCode){
-                $villes[] = $line;
+            if($line[7] == $departmentCode){
+                $villes[] = $line[1];
             }
         }
     }
     return $villes;
+}
+
+function buildSelect($tab, $type){
+    if($type == "department"){
+        $select = "<form method='GET' action='#selection'><br>
+    <label for='".$type."'>Choisissez un "."département.</label><br><select name='".$type."'id='".$type."'>";
+    }
+    else{
+        $select = "<form method='GET' action='#selection'><br>
+    <label for='".$type."'>Choisissez une "."ville.</label><br><select name='".$type."'id='".$type."'>";
+    }
+    $tabLength = count($tab);
+    for($i=0; $i<$tabLength; $i++){
+        $select.="<br><option value='".htmlspecialchars($tab[$i])."'>".$tab[$i]."</option>";
+    }
+    $select.="<br></select><br>";
+    $select.="<button type='submit'>Sélectionner</button>";
+    return $select;
+}
+
+function getWeather($city){
+    $city = urlencode($city);
+    $url = "http://api.weatherapi.com/v1/current.json?key=15585916836c45239de211822250104&q=".$city;
+    $jsonData = file_get_contents($url);
+    $tabResult = json_decode($jsonData, true);
+    return $tabResult;
 }
 ?>

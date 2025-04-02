@@ -2,7 +2,12 @@
 <html lang="fr">
     <head>
         <?php
-        $style="style/style.css";
+        if(isset($_GET["style"]) && $_GET["style"]=="sombre"){
+            $style="style/style_sombre.css";
+        }
+        else{
+            $style="style/style.css";
+        }
         ?>
         <link rel="stylesheet" href="<?=$style?>"/>
         <title><?= $title ?></title>
@@ -11,11 +16,13 @@
 <body>
     <header>
         <div class="logo">
+            <a href="index.php"><img src="images/grand.png"/></a>
         </div>
         <nav>
             <ul>
-                <li><a href="index.php">Accueil</a></li>
+                <li><a href=meteo.php>Prévisions</a></li>
             </ul>
         </nav>
+
     </header>
     <main>

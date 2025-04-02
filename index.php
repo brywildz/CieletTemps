@@ -2,8 +2,35 @@
 $title = "Accueil";
 include "includes/header.inc.php";
 ?>
-<p><a href="meteo.php">Carte météo</a></p>
+
+<section style="text-align: center; padding: 2rem;">
+    <h1>Météo World 🌍</h1>
+    <p>
+        Bienvenue sur <strong>Météo World</strong>, votre plateforme météo intelligente et interactive.
+        Ce site vous permet de consulter en temps réel les <strong>prévisions météo</strong> selon votre <em>région</em>, <em>département</em> ou <em>ville</em>.
+        Grâce à notre système de <strong>géolocalisation</strong>, vous pouvez connaître immédiatement la météo là où vous vous trouvez.
+    </p>
+    <p>
+        En plus des prévisions classiques, vous y trouverez une <strong>carte interactive</strong>, des <strong>données issues d’API météo</strong>,
+        ainsi que des fonctionnalités en cours de développement, comme l’analyse de tendances climatiques.
+    </p>
+    <p style="margin-top: 1rem;">
+        <a href="?style=sombre" style="background-color: #444; color: #fff; padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none;">
+            🌙 Activer/Désactiver le mode nuit
+        </a>
+    </p>
+</section>
+
+<section style="text-align: center; padding: 2rem;">
+    <h2>Navigation rapide</h2>
+    <ul style="list-style: none; padding: 0;">
+        <li><a href="tech.php">👨‍💻 Page développeur</a></li>
+        <li><a href="meteo.php">🗺️ Carte interactive</a></li>
+        <li><a href="meteo.php">📍 Météo géolocalisée (à venir)</a></li>
+        <li><a href="#">📊 Statistiques climatiques (à venir)</a></li>
+    </ul>
+</section>
+
 <?php
 include "includes/footer.inc.php";
 ?>
-

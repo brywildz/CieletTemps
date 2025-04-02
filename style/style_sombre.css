@@ -6,6 +6,14 @@
     border-radius: 5px;
 }
 
+p {
+    color: #dddddd;
+}
+
+a {
+    color: #0070c8;
+}
+
 .meteo-in{
     display: flex;
 }
@@ -105,14 +113,14 @@ section {
 :root {
     --primary-color: #2B2D42;
     --secondary-color: #8D99AE;
-    --background-color: #ececec;
+    --background-color: #27272e;
     --text-color: #27272e;
     --accent-color: #EF233C;
     --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    color: #3e3f94;
+    color: #e2e3fe;
     font-size: 36px;
     text-align: center;
     font-weight: bold;
@@ -123,7 +131,7 @@ h1 {
 h2 {
     font-size: 22px;
     font-weight: bold;
-    color: #333;
+    color: #fff2f2;
     text-align: left;
     margin-bottom: 15px;
     position: relative;
@@ -137,7 +145,7 @@ h2::after {
     left: 0;
     width: 50px;
     height: 4px;
-    background-color: #3e3f94;
+    background-color: #999cec;
     border-radius: 2px;
 }
 
