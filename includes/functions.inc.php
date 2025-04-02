@@ -48,6 +48,12 @@ function getPositionXML2(){
     return $geoData;
 }
 
+/**
+ * Fonction qui lie le fichier csv des régions de France et qui renvoie la ligne dédié au nom de region mis en paramètre
+ * Cette fonction sert à obtenir des informations spécifique sur une region sous forme de tableau
+ * @param $regionName
+ * @return array|false|void|null en fonction du résultat de la lecture de la fonction fgetcsv
+ */
 function readRegionCSV($regionName){
     $path = "csv/v_region_2024.csv";
     $fic = fopen($path, "r");
@@ -64,10 +70,22 @@ function readRegionCSV($regionName){
 
 }
 
+/**
+ * Cette fonction manipule un tableau contenant diverse information sur une region
+ * Elle renvoie le code de la region
+ * @param $region, obtenue via la fonction readRegionCSV
+ * @return mixed, une chaine de caractère
+ */
 function getCodeRegion($region){
     return $region[0];
 }
 
+/**
+ * Fonction qui lie le fichier csv des départements de France et qui renvoie un tableau dependant du code de la region
+ * Cette fonction sert à obtenir le nom de tous les départements d'une region
+ * @param $regionCode, code de la région dont on souhaite avoir les départements
+ * @return array, tableau de chaine de caractère de tous les départements
+ */
 function getDepartments($regionCode){
     $path = "csv/v_departement_2024.csv";
     $fic = fopen($path, "r");
@@ -85,6 +103,12 @@ function getDepartments($regionCode){
     return $departments;
 }
 
+/**
+ * Fonction qui lie que le fichier csv des départements ligne par ligne et compare son contenu avec celui du paramètre
+ * Cette fonction sert à obtenir le code postale d'une région
+ * @param $departmentName, le nom du départements dont on souhaite avoir le code postal.
+ * @return mixed|null, une chaine de caractère | rien si la lecture a échoué
+ */
 function getDepartmentCode($departmentName){
     $path = "csv/v_departement_2024.csv";
     $fic = fopen($path, "r");
@@ -98,6 +122,12 @@ function getDepartmentCode($departmentName){
     return null;
 }
 
+/**
+ * Fonction qui lie le fichier csv des villes de France ligne par ligne et compare son contenu avec celui du paramètre
+ * Cette fonction sert à obtenir un tableau des villes d'un département
+ * @param $departmentCode, le code postal du département dont on souhaite avoir les villes
+ * @return array, un tableau de chaine de caractère
+ */
 function getCities($departmentCode){
     $path = "csv/v_ville_2024.csv";
     $fic = fopen($path, "r");
@@ -112,6 +142,13 @@ function getCities($departmentCode){
     return $villes;
 }
 
+/**
+ * Fonction qui construit un formulaire de sélection selon la taille d'un tableau et du type de son contenu
+ * Cette fonction sert à obtenir un formulaire de sélection soit de départements, soit de villes
+ * @param $tab, tableau contenant les noms à afficher
+ * @param $type, le type d'information du tableau
+ * @return string, le formulaire construit
+ */
 function buildSelect($tab, $type){
     if($type == "department"){
         $select = "<form method='GET' action='#selection'><br>
@@ -130,6 +167,13 @@ function buildSelect($tab, $type){
     return $select;
 }
 
+/**
+ * Fonction utilisant l'API 'weatherAPI'
+ * Elle sert à obtenir les informations météorologique d'une ville dans un tableau clé valeur
+ * Elle lie le contenu de l'URL en JSON et le transforme en tableau associatif.
+ * @param $city, le nom de la ville dont on souhaite avoir les informations météorologique
+ * @return mixed, le tableau associatif des informations à l'heure actuelle
+ */
 function getWeather($city){
     $city = urlencode($city);
     $url = "http://api.weatherapi.com/v1/current.json?key=15585916836c45239de211822250104&q=".$city;
