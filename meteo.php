@@ -1,11 +1,21 @@
 <?php
 include "includes/functions.inc.php";
+if (isset($_GET["city"]) && $_GET["city"] != null) {
+    setcookie("derniere_ville", $_GET["city"], time() + 60 * 60 * 24 * 7);
+}
 $title = "Prévisions";
 include "includes/header.inc.php";
 ?>
 <h1>Carte météo</h1>
 <section class="meteoS">
     <h2>Prévision météo</h2>
+    <?php if (isset($_COOKIE["derniere_ville"])): ?>
+        <div class="derniere-ville">
+            <h2>📍 Dernière ville consultée</h2>
+            <p>Vous avez récemment consulté la météo de <strong><?= htmlspecialchars($_COOKIE["derniere_ville"]) ?></strong>.</p>
+            <a class="href_derniere" href="meteo.php?city=<?= urlencode($_COOKIE["derniere_ville"]) ?>" style="display:inline-block; margin-top:0.5rem; padding:0.5rem 1rem; background:#48aafb; color:white; border-radius:5px; text-decoration:none;">Voir à nouveau</a>
+        </div>
+    <?php endif; ?>
     <img src="images/carte.png" usemap="#regionMap" alt="Carte des régions de France" class="map"/>
     <map name="regionMap">
         <area target="_self" alt="Île-de-France" title="Île-de-France" href="meteo.php?region=Île-de-France#selection"
@@ -89,6 +99,14 @@ include "includes/header.inc.php";
                 <div class="meteo-info">
                     <p>Ressenti</p>
                     <p><?= $weatherTab["feel"] ?>°</p>
+                </div>
+                <div class="meteo-info">
+                    <p>Indice de pluie</p>
+                    <p><?php getIndicePluie($weatherTab["rain"]) ?></p>
+                </div>
+                <div class="meteo-info">
+                    <p>Couverture<br>nuageuse</p>
+                    <p><?= $weatherTab["cloud"] ?>%</p>
                 </div>
             </div>
         </div>

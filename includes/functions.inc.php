@@ -304,8 +304,32 @@ function traitementMeteo(){
         $weatherTab["feel"] = $weather["current"]["feelslike_c"];
         $weatherTab["day"] = $weather["current"]["is_day"];
         $weatherTab["rain"] = $weather["current"]["precip_mm"];
+        $weatherTab["wind"] = $weather["current"]["wind_kph"];
+        $weatherTab["wind_dir"] = $weather["current"]["wind_dir"];
+        $weatherTab["cloud"] = $weather["current"]["cloud"];
     }
     return $weatherTab;
+}
+
+function getIndicePluie($n){
+    if($n == 0){
+        echo "0/5";
+    }
+    else if($n > 0.1 && $n < 1){
+        echo "1/5";
+    }
+    else if($n > 1 && $n < 5){
+        echo "2/5";
+    }
+    else if($n > 5 && $n < 20){
+        echo "3/5";
+    }
+    else if($n > 20 && $n < 50){
+        echo "4/5";
+    }
+    else{
+        echo "5/5";
+    }
 }
 
 /**
@@ -354,6 +378,7 @@ function printRanking($ranking){
     $c = 1;
     foreach($top7Faveeee as $cle => $valeur){
         $s .= "<tr><td>$c</td><td>$cle</td><td>$valeur</td></tr>";
+        $c++;
     }
     $s .= "</table>";
     echo $s;
