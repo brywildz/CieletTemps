@@ -312,3 +312,20 @@ nav ul li a:hover {
     padding: 10px;
     text-align: center;
 }
+.weekly-meteo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.day-box {
+    background-color: #e8f0fe;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    width: 150px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+

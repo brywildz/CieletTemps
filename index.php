@@ -14,11 +14,16 @@ include "includes/header.inc.php";
         En plus des prévisions classiques, vous y trouverez une <strong>carte interactive</strong>, des <strong>données issues d’API météo</strong>,
         ainsi que des fonctionnalités en cours de développement, comme l’analyse de tendances climatiques.
     </p>
+
     <p style="margin-top: 1rem;">
         <a href="?style=sombre" style="background-color: #444; color: #fff; padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none;">
-            🌙 Activer/Désactiver le mode nuit
+            🌙 Mode sombre
+        </a>
+        <a href="?style=clair" style="background-color: #ddd; color: #000; padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none; margin-left: 1rem;">
+            ☀️ Mode clair
         </a>
     </p>
+
 </section>
 
 <section style="text-align: center; padding: 2rem;">

@@ -93,7 +93,7 @@ function getDepartments($regionCode){
     if($fic !== false){
         while(($line = fgetcsv($fic, 1000, ",")) !== false){
             if($line[1] == $regionCode){
-                $departments[] = $line[4];
+                $departments[] = $line[6];
             }
         }
     }
@@ -114,7 +114,7 @@ function getDepartmentCode($departmentName){
     $fic = fopen($path, "r");
     if($fic !== false){
         while(($line = fgetcsv($fic, 1000, ",")) !== false){
-            if($line[4] == $departmentName){
+            if($line[6] == $departmentName){
                 return $line[0];
             }
         }
@@ -129,13 +129,13 @@ function getDepartmentCode($departmentName){
  * @return array, un tableau de chaine de caractère
  */
 function getCities($departmentCode){
-    $path = "csv/v_ville_2024.csv";
+    $path = "csv/communes-france-2025.csv";
     $fic = fopen($path, "r");
     $villes = array();
     if($fic !== false){
-        while(($line = fgetcsv($fic, 1000, ",")) !== false){
-            if($line[7] == $departmentCode){
-                $villes[] = $line[1];
+        while(($line = fgetcsv($fic, 10000, ",")) !== false){
+            if($line[12] == $departmentCode){
+                $villes[] = $line[6];
             }
         }
     }
@@ -174,11 +174,94 @@ function buildSelect($tab, $type){
  * @param $city, le nom de la ville dont on souhaite avoir les informations météorologique
  * @return mixed, le tableau associatif des informations à l'heure actuelle
  */
-function getWeather($city){
+function getCityUrl($city){
     $city = urlencode($city);
-    $url = "http://api.weatherapi.com/v1/current.json?key=15585916836c45239de211822250104&q=".$city;
+    $id = searchCityById($city);
+    if($id!=""){
+        $url = "http://api.weatherapi.com/v1/current.json?key=15585916836c45239de211822250104&q=id:".$id;
+    }
+    else {
+        $coord = getCityLoc($city);
+        $url = "http://api.weatherapi.com/v1/current.json?key=15585916836c45239de211822250104&q=" . $coord["latitude"] . "," . $coord["longitude"];
+    }
+    return $url;
+}
+
+function getCurrentWeather($url){
     $jsonData = file_get_contents($url);
     $tabResult = json_decode($jsonData, true);
+    return $tabResult;
+}
+
+function searchCityById($city){
+    $city = urlencode($city);
+    $url = "http://api.weatherapi.com/v1/search.json?key=15585916836c45239de211822250104&q=".$city;
+    $jsonData = file_get_contents($url);
+    $tabResult = json_decode($jsonData, true);
+    $id = "";
+    $i=0;
+    $found = false;
+    while(!$found && $i<sizeof($tabResult) && !empty($tabResult) ){
+        if($tabResult[$i]["country"] == "France"){
+            $id.= $tabResult[$i]["id"];
+            $found = true;
+        }
+        $i++;
+    }
+    return $id;
+}
+
+function getCityLoc($city){
+    $city=getCityRealName($city);
+    $url = "https://geo.api.gouv.fr/communes?nom=".$city."&fields=centre&format=json&geometry=centre";
+    $jsonData = file_get_contents($url);
+    $tabResult = json_decode($jsonData, true);
+    $found = false;
+    $i=0;
+    while(!$found && $i<sizeof($tabResult)){
+        if($tabResult[$i]["nom"] == $city){
+            $coord["longitude"] = $tabResult[$i]["centre"]["coordinates"][0];
+            $coord["latitude"] = $tabResult[$i]["centre"]["coordinates"][1];
+            $found = true;
+        }
+        $i++;
+    }
+    return $coord;
+}
+
+function getCityRealName($cityName){
+    $path = "csv/communes-france-2025.csv";
+    $fic = fopen($path, "r");
+    $cityName = strtolower($cityName);
+    if($fic !== false){
+        while(($line = fgetcsv($fic, 1000, ",")) !== false){
+            if(!empty($line[6]) && $line[6] == $cityName){
+                return $line[2];
+            }
+        }
+    }
+}
+
+function getRegion($cityName){
+    $path = "csv/communes-france-2025.csv";
+    $fic = fopen($path, "r");
+    if($fic !== false){
+        while(($line = fgetcsv($fic, 1000, ",")) !== false){
+            if(!empty($line[6]) && $line[6] == $cityName){
+                return $line[11];
+            }
+        }
+    }
+}
+
+/**
+ * Récupère les prévisions météo sur 7 jours d'une ville avec WeatherAPI
+ */
+function getWeeklyWeather($url){
+    $url = str_replace("current", "forecast", $url);
+    $url .= "&days=7&lang=fr";
+    $data = file_get_contents($url);
+    $tabResult = json_decode($data, true);
     return $tabResult;
 }
 
@@ -212,7 +295,8 @@ function traitementMeteo(){
     $weatherTab = array();
     $weatherTab["cond"] = false;
     if (isset($_GET["city"]) && $_GET["city"] != null) {
-        $weather = getWeather($_GET["city"]);
+        $url = getCityUrl($_GET["city"]);
+        $weather = getCurrentWeather($url);
         $weatherTab["cond"] = true;
         $weatherTab["city"] = $weather["location"]["name"];
         $weatherTab["region"] = $weather["location"]["region"];
