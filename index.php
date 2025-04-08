@@ -1,6 +1,7 @@
 <?php
 $title = "Accueil";
 include "includes/header.inc.php";
+include "includes/functions.inc.php"
 ?>
 
 <section style="text-align: center; padding: 2rem;">
@@ -24,6 +25,13 @@ include "includes/header.inc.php";
         </a>
     </p>
 
+</section>
+<section>
+    <h2>Classement des villes les plus consultées</h2>
+    <?php $ranking = getRankingCitiesJson() ?>
+    <?php if(!empty($ranking)): ?>
+        <?php printRanking($ranking); ?>
+    <?php endif; ?>
 </section>
 
 <section style="text-align: center; padding: 2rem;">

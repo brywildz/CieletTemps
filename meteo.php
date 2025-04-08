@@ -62,13 +62,14 @@ include "includes/header.inc.php";
     }
     $form = traitementGET();
     $weatherTab = traitementMeteo();
-    //getCityRealName($weatherTab["city"])
+
     ?>
     <div id="selection" class='selection'>
         <?php if ($form != null) echo $form ?>
     </div>
 
-    <?php if ($weatherTab["cond"]): ?>
+    <?php if ($weatherTab["cond"]):
+        refreshJson($weatherTab["city"])?>
         <div class="meteo">
             <p><?= $weatherTab["city"] ?>, <?= getRegion($_GET["city"]) ?></p>
             <div class="meteo-in">

@@ -307,4 +307,55 @@ function traitementMeteo(){
     }
     return $weatherTab;
 }
+
+/**
+ * Incrémente et retourne un compteur de "hits" (nombre de visites ou rafraîchissements)
+ * stocké dans un fichier texte 'hit.txt'. Crée le fichier s'il n'existe pas.
+ * @return int le nombre de hit
+ */
+function refreshJson($cityName)
+{
+    $fic = "histo.json";
+    if(!file_exists($fic)){
+        createJson();
+    }
+    $data = file_get_contents("histo.json");
+    $result = json_decode($data, true);
+    if(!isset($result["villes"][$cityName])){
+        $result["villes"][$cityName] = 1;
+    }
+    else{
+        $result["villes"][$cityName]++;
+    }
+    $encode_result = json_encode($result, JSON_PRETTY_PRINT);
+    file_put_contents("histo.json", $encode_result);
+}
+
+function createJson(){
+    $content = array("villes");
+    file_put_contents("histo.json", json_encode($content, JSON_PRETTY_PRINT));
+}
+
+function getRankingCitiesJson(){
+    if(!file_exists("histo.json")){
+        return;
+    }
+    $data = file_get_contents("histo.json");
+    $result = json_decode($data, true);
+    if(isset($result["villes"])){
+        arsort($result["villes"]);
+    }
+    return $result["villes"];
+}
+
+function printRanking($ranking){
+    $top7Faveeee = array_slice($ranking, 0, 5, true);
+    $s = "<table class='normalTab'><tr><th>Classement</th><th>Ville</th><th>Nombre de consultations</th></tr>";
+    $c = 1;
+    foreach($top7Faveeee as $cle => $valeur){
+        $s .= "<tr><td>$c</td><td>$cle</td><td>$valeur</td></tr>";
+    }
+    $s .= "</table>";
+    echo $s;
+}
 ?>
