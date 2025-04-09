@@ -1,4 +1,7 @@
 <?php
+
+use Random\RandomException;
+
 /**
  * Fonction qui renvoie un tableau (initialement en JSON) traité
  * Ce fichier JSON est issu de l'API de l'image du jour de la NASA
@@ -334,7 +337,7 @@ function getIndicePluie($n){
 
 /**
  * Incrémente et retourne un compteur de "hits" (nombre de visites ou rafraîchissements)
- * stocké dans un fichier texte 'hit.txt'. Crée le fichier s'il n'existe pas.
+ * stocké dans un fichier json 'histo.json'. Crée le fichier s'il n'existe pas.
  * @return int le nombre de hit
  */
 function refreshJson($cityName)
@@ -382,5 +385,14 @@ function printRanking($ranking){
     }
     $s .= "</table>";
     echo $s;
+}
+
+function chiffreAleatoire(): int
+{
+    $r = 3;
+    while($r == 3 || $r == 1){
+    $r = rand(1,9);
+    }
+    return $r;
 }
 ?>

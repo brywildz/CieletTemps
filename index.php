@@ -11,6 +11,7 @@ include "includes/functions.inc.php"
         Ce site vous permet de consulter en temps réel les <strong>prévisions météo</strong> selon votre <em>région</em>, <em>département</em> ou <em>ville</em>.
         Grâce à notre système de <strong>géolocalisation</strong>, vous pouvez connaître immédiatement la météo là où vous vous trouvez.
     </p>
+    <img src= "<?php echo 'imageAleatoire/'.chiffreAleatoire()?>.jpg" alt="image aléatoire" style="text-align: center; border-radius: 10%"/>
     <p>
         En plus des prévisions classiques, vous y trouverez une <strong>carte interactive</strong>, des <strong>données issues d’API météo</strong>,
         ainsi que des fonctionnalités en cours de développement, comme l’analyse de tendances climatiques.
