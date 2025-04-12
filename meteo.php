@@ -1,10 +1,11 @@
 <?php
-include "includes/functions.inc.php";
+include "includes/functions/functions.inc.php";
+include "includes/functions/functionRanking.php";
 if (isset($_GET["city"]) && $_GET["city"] != null) {
     setcookie("derniere_ville", $_GET["city"], time() + 60 * 60 * 24 * 7);
 }
 $title = "Prévisions";
-include "includes/header.inc.php";
+include "includes/pageParts/header.inc.php";
 ?>
 <h1>Carte météo</h1>
 <section class="meteoS">
@@ -78,8 +79,8 @@ include "includes/header.inc.php";
         <?php if ($form != null) echo $form ?>
     </div>
 
-    <?php if ($weatherTab["cond"]):
-        refreshJson($weatherTab["city"])?>
+    <?php if ($weatherTab["cond"]):?>
+        <?php refreshCsv($weatherTab["city"])?>
         <div class="meteo">
             <p><?= $weatherTab["city"] ?>, <?= getRegion($_GET["city"]) ?></p>
             <div class="meteo-in">
@@ -133,4 +134,4 @@ include "includes/header.inc.php";
 
 
 </section>
-<?php include "includes/footer.inc.php"; ?>
+<?php include "includes/pageParts/footer.inc.php"; ?>

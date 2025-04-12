@@ -1,7 +1,8 @@
 <?php
 $title = "Accueil";
-include "includes/header.inc.php";
-include "includes/functions.inc.php"
+include "includes/pageParts/header.inc.php";
+include "includes/functions/functionRanking.php";
+include "includes/functions/functions.inc.php";
 ?>
 
 <section style="text-align: center; padding: 2rem;">
@@ -29,9 +30,11 @@ include "includes/functions.inc.php"
 </section>
 <section>
     <h2>Classement des villes les plus consultées</h2>
-    <?php $ranking = getRankingCitiesJson() ?>
+    <?php $ranking = getRankingCitiesCsv() ?>
     <?php if(!empty($ranking)): ?>
         <?php printRanking($ranking); ?>
+    <?php else: ?>
+        <?php echo "Aucune n'a encore été consultée" ?>
     <?php endif; ?>
 </section>
 
@@ -46,5 +49,5 @@ include "includes/functions.inc.php"
 </section>
 
 <?php
-include "includes/footer.inc.php";
+include "includes/pageParts/footer.inc.php";
 ?>

@@ -1,7 +1,7 @@
 <?php
-include "includes/functions.inc.php";
 $title = "Tech";
-include "includes/header.inc.php";
+include "includes/functions/functions.inc.php";
+include "includes/pageParts/header.inc.php";
 ?>
 
 <?php
@@ -196,5 +196,5 @@ $url = $tabJson["url"];
     </article>
 </section>
 <?php
-include "includes/footer.inc.php";
+include "includes/pageParts/footer.inc.php";
 ?>
