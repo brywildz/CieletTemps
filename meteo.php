@@ -7,7 +7,7 @@ if (isset($_GET["city"]) && $_GET["city"] != null) {
 $title = "Prévisions";
 include "includes/pageParts/header.inc.php";
 ?>
-<h1>Carte météo</h1>
+<h1 class="classic-h1">Carte météo</h1>
 <section class="meteoS">
     <h2>Prévision météo</h2>
     <?php if (isset($_COOKIE["derniere_ville"])): ?>
@@ -100,15 +100,23 @@ include "includes/pageParts/header.inc.php";
         <?php refreshCsv($weatherTab["city"])?>
 
         <div class="meteo">
-            <p><b>Météo <?= $weatherTab["city"] ?> : <?=ucfirst($weatherTab["desc"])?></b></p>
+            <p><b>Météo <?= $_GET["city"] ?> : <?=ucfirst($weatherTab["desc"])?></b></p>
             <div class="meteo-in">
-                <img src="https://openweathermap.org/img/wn/<?= $weatherTab["img"]?>@4x.png" alt="Illustration météo"/>
+
                 <div class="meteo-info-degre">
-                    <p style="font-size: 40px">🌡️<?= $weatherTab["deg"] ?>°</p>
+
+                    <div style="display: flex">
+                        <img style=
+                             "flex-shrink: 0; flex-grow: 0; height: auto; width: auto;"
+                             src="https://openweathermap.org/img/wn/<?= $weatherTab["img"] ?>@2x.png"
+                              alt="Illustration météo"/>
+                        <p style="font-size: 40px"><?= $weatherTab["deg"] ?>°C</p>
+                    </div>
                     <p style="font-size: 20px">🎯 Ressenti <?=$weatherTab["feel"]?> </p>
-                    <p>❄️ Min : <?= $weatherTab["min"]?></p>
-                        <p>🔥 Max : <?= $weatherTab["min"]?></p>
+                    <p>❄️ Min : <?= $weatherTab["min"]?>°C</p>
+                        <p>🔥 Max : <?= $weatherTab["max"]?>°C</p>
                 </div>
+                <img src="images/linee.PNG" alt="trait"/>
                 <div class="meteo-info">
                     <p style="font-size: 25px">💨 Vent : <?=$weatherTab["wind"]?> m/s</p>
                     <p style="font-size: 25px">☁️ Nuages : <?= $weatherTab["clouds"] ?>%</p>

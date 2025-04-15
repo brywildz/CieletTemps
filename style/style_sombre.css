@@ -4,11 +4,14 @@ a{
 
 .meteoS{
     display: block;
-    margin : 0 auto;
     background: #222222;
     /*border: 2px solid #2B2D42;*/
     border-radius: 5px;
     color: white;
+    width: 65%;
+    margin: 20px auto;
+    text-align: left;
+    padding: 20px;
 }
 
 p {

@@ -3,10 +3,29 @@ $title = "Accueil";
 include "includes/pageParts/header.inc.php";
 include "includes/functions/functionRanking.php";
 include "includes/functions/functions.inc.php";
+include "includes/functions/functionsTech.php";
 ?>
 
-<section style="text-align: center; padding: 2rem;">
-    <h1>Ciel&Temps 🌍</h1>
+
+    <div class="accueil">
+        <h1 class="newgen">Ciel&Temps</h1>
+        <p class="slogan"><em>Les infos du ciel à tout temps !</em></p>
+        <div class="locate-info">
+            <?php
+            $geoJson = getPositionJSON();
+            //list($latitude, $longitude) = explode(",", $geoJson["loc"]);
+            $insee = getInseeCode($geoJson["city"]);
+            $weather = getWeather($insee);
+            ?>
+            <h2><?= $geoJson["city"] ?> : <?= $weather["weather"][0]["description"] ?></h2>
+            <div style="display: flex">
+                <img src="https://openweathermap.org/img/wn/<?= $weather["weather"][0]["icon"] ?>@2x.png" alt="Illustration météo"/>
+                <p style="font-size: 35px"><?= $weather["main"]["temp"] ?>°C</p>
+            </div>
+            <a class="see-more" href="meteo.php?city=<?= $geoJson["city"] ?>#selection">Voir plus</a>
+        </div>
+    </div>
+<section class="classic" style="text-align: center; padding: 2rem;">
     <p>
         Bienvenue sur <strong>Ciel&Temps</strong>, votre plateforme météo intelligente et interactive.
         Ce site vous permet de consulter en temps réel les <strong>prévisions météo</strong> selon votre <em>région</em>, <em>département</em> ou <em>ville</em>.
@@ -28,7 +47,7 @@ include "includes/functions/functions.inc.php";
     </p>
 
 </section>
-<section>
+<section class="classic">
     <h2>Classement des villes les plus consultées</h2>
     <?php $ranking = getRankingCitiesCsv() ?>
     <?php if(!empty($ranking)): ?>
@@ -38,7 +57,7 @@ include "includes/functions/functions.inc.php";
     <?php endif; ?>
 </section>
 
-<section style="text-align: center; padding: 2rem;">
+<section class="classic" style="text-align: center; padding: 2rem;">
     <h2>Navigation rapide</h2>
     <ul style="list-style: none; padding: 0;">
         <li><a href="tech.php">👨‍💻 Page développeur</a></li>

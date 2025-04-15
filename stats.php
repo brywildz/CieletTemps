@@ -5,7 +5,7 @@ include "includes/functions/functionRanking.php";
 include "includes/pageParts/header.inc.php";
 ?>
 
-    <h1>Informations statistiques</h1>
+    <h1 class="classic-h1">Informations statistiques</h1>
 
     <section>
         <h2>Les villes les plus consultées de notre site</h2>

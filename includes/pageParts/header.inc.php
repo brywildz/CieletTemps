@@ -22,7 +22,7 @@
 <body>
     <header>
         <div class="logo">
-            <a href="index.php"><img src="images/grand.png" alt="icone du site"/></a>
+            <a href="index.php"><img src="images/logo.png" alt="icone du site"/></a>
         </div>
         <nav>
             <ul>
@@ -34,13 +34,9 @@
 
         <div class="style-toggle">
             <?php if (!isset($_COOKIE["style"]) || $_COOKIE["style"] == "clair" || (isset($_GET["style"]) && $_GET["style"] == "clair")): ?>
-                <a href="?style=sombre" title="Activer le mode sombre">
-                    <img src="images/mode.png" alt="mode sombre" height="30">
-                </a>
+            <a href="?style=sombre" class="dark-mode">🌙 Mode sombre</a>
             <?php else: ?>
-                <a href="?style=clair" title="Activer le mode clair">
-                    <img src="images/mode.png" alt="mode clair" height="30">
-                </a>
+            <a href="?style=clair" class="light-mode">☀️ Mode jour</a>
             <?php endif; ?>
         </div>
     </header>
