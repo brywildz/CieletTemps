@@ -24,6 +24,8 @@ p {
     padding: 40px;
     border-left: 2px solid black;
     height: 300px;
+    align-items: center;
+    text-align: center;
 }
 
 .meteo-info-first{

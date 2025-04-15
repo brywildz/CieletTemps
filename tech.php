@@ -1,6 +1,6 @@
 <?php
 $title = "Tech";
-include "includes/functions/functions.inc.php";
+include "includes/functions/functionsTech.php";
 include "includes/pageParts/header.inc.php";
 ?>
 

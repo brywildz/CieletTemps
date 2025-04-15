@@ -2,8 +2,11 @@ a {
     color: #1864ad;
 }
 
+.selection{
+    text-align: center;
+}
+
 .meteoS{
-    display: block;
     margin : 0 auto;
     background: #fdfdfd;
     /*border: 2px solid #2B2D42;*/
@@ -12,46 +15,46 @@ a {
 
 .meteo-in{
     display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center;     /* centre verticalement */
+    height: 30vh;
+    gap: 50px;
+
 }
 
 .meteo-info{
     display: block;
-    padding: 40px;
-    border-left: 2px solid black;
-    height: 300px;
 }
 
-.meteo-info-first{
-    display: block;
-    padding: 40px;
-}
-.meteo-info-first p,
 .meteo-info p{
-    margin-bottom : 70px;
-    text-align: center;
-    font-size: 27px !important;
+    margin-bottom : 10px;
 }
 
+.meteo-info-degre{
+    display: block;
+}
 .meteo{
     padding : 20px;
     color: #000000;
     display: block;
-    margin: 25px auto auto auto;
-    background-color: #96c2e1;
-    border-radius: 40px;
+    background-color: #0d86cc;
+    border-radius: 10px;
+    align-items: center;
+    width: 70%;
 }
 
 .meteo p{
     font-size: 20px;
-    color: #333333;
+    color: #d1d1e0;
 }
 
 
 .map{
-    background-color: rgba(127, 168, 191, 0.39);
-    display: block;
+    display: flex;
+    align-items: center;
     margin : 0 auto;
     border-radius: 5px;
+    justify-content: center;
 }
 
 .navin {
@@ -360,4 +363,30 @@ nav ul li a:hover {
     right: 0;
     margin: 0;
 }
+
+.custom-select {
+    appearance: none;            /* Supprime le style natif */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    padding: 10px 40px 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    font-family: "Segoe UI", sans-serif;
+    color: #333;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='16' viewBox='0 0 20 20' width='16' xmlns='http://www.w3.org/2000/svg'><polygon points='0,0 20,0 10,10'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+.custom-select:focus {
+    outline: none;
+    border-color: #7aa4f7;
+    box-shadow: 0 0 0 3px rgba(122, 164, 247, 0.3);
+}
+
 

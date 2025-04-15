@@ -1,0 +1,34 @@
+1) Afficher plus d'info sur la journée + les prévisions
+2) Peaufiner le CSS
+
+<div class="meteo">
+            <div class="meteo-in">
+                <div class="meteo-info-degre">
+                    <p style="font-size: 50px"><?= $weatherTab["deg"] ?>°</p>
+                    <p style="font-size: 20px">Ressenti <?=$weatherTab["feel"]?> </p>
+                    <p>min : <?= $weatherTab["min"]?></p>
+                    <p>max : <?= $weatherTab["min"]?></p>
+                </div>
+                <div class="meteo-info">
+                    <img src="https://openweathermap.org/img/wn/<?= $weatherTab["img"]?>@2x.png" alt="Illustration météo"/>
+                    <p><?=ucfirst($weatherTab["desc"])?></p>
+                </div>
+
+                <div class="meteo-info">
+                    <p>Vitesse du<br>vent</p>
+                    <p><?=$weatherTab["wind"]?> m/s</p>
+                </div>
+                <div class="meteo-info">
+                    <p>Couverture<br>nuageuse</p>
+                    <p><?= $weatherTab["clouds"] ?>%</p>
+                </div>
+                <div class="meteo-info">
+                    <p>Humidité</p>
+                    <p><?= $weatherTab["humidity"] ?>%</p>
+                </div>
+                <!--<div class="meteo-info">
+                    <p>Couverture<br>nuageuse</p>
+                    <p><?= $weatherTab["cloud"] ?>%</p>
+                </div>-->
+            </div>
+        </div>
