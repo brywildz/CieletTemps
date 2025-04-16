@@ -1,4 +1,5 @@
 <?php
+$css = "meteo.css";
 include "includes/functions/functions.inc.php";
 include "includes/functions/functionRanking.php";
 if (isset($_GET["city"]) && $_GET["city"] != null) {
@@ -7,7 +8,7 @@ if (isset($_GET["city"]) && $_GET["city"] != null) {
 $title = "Prévisions";
 include "includes/pageParts/header.inc.php";
 ?>
-<h1 class="classic-h1">Carte météo</h1>
+<h1 class="default-h1">Carte météo</h1>
 <section class="meteoS">
     <h2>Prévision météo</h2>
     <?php if (isset($_COOKIE["derniere_ville"])): ?>
@@ -20,7 +21,7 @@ include "includes/pageParts/header.inc.php";
 
 
     <div class="map">
-        <img src="images/domt.png" usemap="#image-map">
+        <img src="images/meteo/carte-dom.png" usemap="#image-map">
 
         <map name="image-map">
             <area target="_self" alt="Guadeloupe" title="Guadeloupe" href="meteo.php?region=Guadeloupe" coords="6,3,144,146" shape="rect">
@@ -30,7 +31,7 @@ include "includes/pageParts/header.inc.php";
             <area target="_self" alt="Mayotte" title="Mayotte" href="meteo.php?region=Mayotte" coords="10,620,141,766" shape="rect">
         </map>
 
-        <img src="images/carte.png" usemap="#regionMap" alt="Carte des régions de France"/>
+        <img src="images/meteo/carte-region.png" usemap="#regionMap" alt="Carte des régions de France"/>
         <map name="regionMap">
             <area target="_self" alt="Île-de-France" title="Île-de-France"
                   href="meteo.php?region=Île-de-France#selection"
@@ -116,7 +117,7 @@ include "includes/pageParts/header.inc.php";
                     <p>❄️ Min : <?= $weatherTab["min"]?>°C</p>
                         <p>🔥 Max : <?= $weatherTab["max"]?>°C</p>
                 </div>
-                <img src="images/linee.PNG" alt="trait"/>
+                <img src="images/meteo/separation-line.png" alt="trait"/>
                 <div class="meteo-info">
                     <p style="font-size: 25px">💨 Vent : <?=$weatherTab["wind"]?> m/s</p>
                     <p style="font-size: 25px">☁️ Nuages : <?= $weatherTab["clouds"] ?>%</p>

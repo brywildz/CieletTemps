@@ -52,16 +52,19 @@ function getRankingCitiesCsv() : ?array{
     }
     $rankingTab = [];
     $file = "csv/ranking.csv";
+    $i=0;
     if(($handle = fopen($file, "r")) !== false){
         fgetcsv($handle, 1000, ","); //éliminer l'entête
         while(($line = fgetcsv($handle, 1000, ",")) !== false){
             $rankingTab[$line[0]] = $line[1];
+            $i++;
         }
     }
     arsort($rankingTab);
-
     return $rankingTab;
 }
+
+
 
 function printRanking($ranking): void
 {

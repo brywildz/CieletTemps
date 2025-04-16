@@ -1,5 +1,6 @@
 <?php
 $title = "Accueil";
+$css = "index.css";
 include "includes/pageParts/header.inc.php";
 include "includes/functions/functionRanking.php";
 include "includes/functions/functions.inc.php";
@@ -7,7 +8,7 @@ include "includes/functions/functionsTech.php";
 ?>
 
 
-    <div class="accueil">
+    <section class="accueil">
         <h1 class="newgen">Ciel&Temps</h1>
         <p class="slogan"><em>Les infos du ciel à tout temps !</em></p>
         <div class="locate-info">
@@ -24,8 +25,8 @@ include "includes/functions/functionsTech.php";
             </div>
             <a class="see-more" href="meteo.php?city=<?= $geoJson["city"] ?>#selection">Voir plus</a>
         </div>
-    </div>
-<section class="classic" style="text-align: center; padding: 2rem;">
+    </section>
+<section class="default-section" style="text-align: center; padding: 2rem;">
     <p>
         Bienvenue sur <strong>Ciel&Temps</strong>, votre plateforme météo intelligente et interactive.
         Ce site vous permet de consulter en temps réel les <strong>prévisions météo</strong> selon votre <em>région</em>, <em>département</em> ou <em>ville</em>.

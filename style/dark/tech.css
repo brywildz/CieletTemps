@@ -1,0 +1,43 @@
+.loc{
+    padding : 20px;
+    color: white;
+    text-align: center;
+    display: block;
+    margin: 25px auto auto auto;
+    background-color: #27272e;
+    border-radius: 40px;
+}
+
+.loc p{
+    font-size: 20px;
+    color: #C4EA63FF;
+}
+
+.img-illustration{
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;
+}
+
+.double-content-horizontal {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 30px;
+}
+
+.double-content-vertical {
+    display: table-column;
+}
+
+.ipTab {
+    font-size: 25px;
+    margin: 0 auto;
+    align-items: center;
+    width: 50%;
+}
+
+.ipTab th, td {
+    padding: 10px;
+    text-align: center;
+}

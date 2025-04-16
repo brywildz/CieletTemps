@@ -1,0 +1,38 @@
+.locate-info{
+    border-radius: 20px;
+    background-color: #cccccc;
+    width: 20%;
+    padding: 20px;
+    margin-left: 75%;
+    margin-top: 10%;
+}
+
+.newgen{
+    font-size: 50px;
+    color: white;
+    margin-left: 30%;
+    padding-top: 5%;
+}
+
+.slogan{
+    font-size: 20px;
+    color: #c4ea63;
+    margin-left: 30%;
+
+}
+
+.see-more{
+    text-decoration: none;
+    font-size: 18px;
+    color: #d1d1e0;
+    letter-spacing: 1px;
+    background-color: #256f9a;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.see-more:hover {
+    background-color: #57d3ff;
+}

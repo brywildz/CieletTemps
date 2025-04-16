@@ -1,0 +1,14 @@
+.graph{
+    position: relative;
+    background-image : url(../../images/fond_carreaux.png);
+    height: 400px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.graphLegend{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+}

@@ -2,6 +2,7 @@
 declare(strict_types=1);
 function showRanking(?array $rankingTab) : string
 {
+    $rankingTab = array_slice($rankingTab, 0, 5, true);
     $s = "<div class='graph'><h3 style='text-align: center'>Les villes les plus consultées</h3>";
     if(empty($rankingTab)){
         $s .= "<p style='text-align: center'>Aucune ville n'a été consulté pour le moment</p>";

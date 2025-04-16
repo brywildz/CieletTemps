@@ -1,0 +1,312 @@
+.accueil{
+    background-image: url('../../images/meteo/sky-background.jpg');
+    height: 900px;
+}
+
+a{
+    color: #1864ad;
+    display:block;
+    text-align: center;
+    margin: auto;
+}
+.default-section {
+    width: 65%;
+    margin: 20px auto;
+    text-align: left;
+    padding: 20px;
+}
+
+.table-classique {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: serif;
+    font-size: 16px;
+    color: #000;
+    background-color: #fff;
+}
+
+:root {
+    --primary-color: #2B2D42;
+    --secondary-color: #8D99AE;
+    --background-color: #ececec;
+    --text-color: #27272e;
+    --accent-color: #EF233C;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+.default-h1 {
+    color: #3e3f94;
+    font-size: 36px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+h2::after {
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 0;
+    width: 50px;
+    height: 4px;
+    background-color: #3e3f94;
+    border-radius: 2px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+footer::before {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 2px;
+    background-color: #555;
+    margin: 0 auto 10px auto;
+    opacity: 0.5;
+}
+
+
+figure{
+    margin-top:2%;
+    margin-bottom:2%;
+    text-align: center;
+}
+
+.content-flex {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 30px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: black;
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*
+.navin {
+    position: fixed;
+    left: 10%;
+    transform: translateX(-50%);
+    background: rgba(192, 192, 192, 0.8);
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+    list-style: none;
+}
+
+.navin li{
+    color : green;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+*/
+
+
+header {
+    font-family: 'Inter', sans-serif;
+    position: sticky;
+    top:0;
+    width: 100%;
+    height: 70px;
+    background-color: #ffffff;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 0px 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    gap: 40px;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+nav li {
+    display: flex;
+    margin: 0 15px;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    transition: 0.3s;
+    margin: 0 auto;
+}
+
+nav ul li a:hover {
+    color: #000d54;
+
+}
+.select-nav {
+    position: relative;
+    display: inline-block;
+
+}
+
+.select-nav::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* commence au milieu */
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #315b7f;
+    transition: width 0.4s ease;
+}
+
+.select-nav:hover::after {
+    width: 70%;
+}
+.nav-container {
+    display: flex;
+    align-items: center;
+}
+
+.menu-deroulant{
+    position: relative;
+}
+
+.choice-list{
+    display: none;
+    position: absolute;
+    text-align: center;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 8px 0;
+    min-width: 360px;
+    height: 290px;
+    z-index: 999;
+}
+
+.menu-deroulant:hover .choice-list {
+    display: block;
+}
+
+.choice-list a {
+    display: inline-flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    color: #000;
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 15px;
+    transition: background 0.2s ease;
+}
+
+.choice-list a:hover{
+    background-color: rgba(223, 235, 236, 0.55);
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+}
+
+
+.content {
+    margin-top: 100px;
+    padding: 20px;
+}
+
+
+.normalTab th, .normalTab td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.normalTab th {
+    background: #333;
+    color: white;
+}
+
+.dark-mode{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    background-color: #000000;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    width: 139px;
+    height: 39px;
+}
+.dark-mode:hover {
+    background-color: #4e4e57;
+}
+
+.light-mode{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 18px;
+    color: #000000;
+    letter-spacing: 1px;
+    background-color: #d1d1e0;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.light-mode:hover {
+    background-color: #4e4e57;
+}

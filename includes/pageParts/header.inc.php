@@ -12,29 +12,42 @@
            $styleName = $_COOKIE["style"];
        }
 
-       $style = ($styleName ?? 'clair') === "sombre" ? "style/style_sombre.css" : "style/style.css";
+       $style = ($styleName ?? 'clair') === "sombre" ? "style/dark/" : "style/light/";
        ?>
-
-        <link rel="stylesheet" href="<?= $style ?>"/>
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="<?= $style ?>global.css"/>
+        <link rel="stylesheet" href="<?= $style.$css ?>"/>
+        <?php if(isset($css2)) :?>
+            <link rel="stylesheet" href="<?= $style.$css2 ?>"/>
+        <?php endif; ?>
         <title><?= $title ?></title>
-        <link rel="icon" href="images/favicon.png" type="image/png"/>
+        <link rel="icon" type="image/png" href="images/header/favicon.png" />
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="index.php"><img src="images/logo.png" alt="icone du site"/></a>
+            <a href="index.php"><img src="images/header/logo-nav.png" alt="icone du site"/></a>
         </div>
         <nav>
             <ul>
-                <li><a href="meteo.php">Prévisions</a></li>
-                <lI><a href="stats.php">Statistiques</a></lI>
+                <li class="menu-deroulant">
+                    <a href="meteo.php">Explorer ▾</a>
+                    <div class="choice-list">
+                            <a href="search.php">
+                            <img src="images/header/search-text.png" alt="icone de carte"/>
+                        </a>
+                            <a href="meteo.php">
+                                <img src="images/header/search-map.png" alt="icone de carte"/>
+                            </a>
+                    </div>
+                </li>
+                <lI><a class="select-nav" href="stats.php">Statistiques</a></lI>
+                <li><a class="select-nav" href="">À propos</a></li>
             </ul>
         </nav>
-
-
         <div class="style-toggle">
             <?php if (!isset($_COOKIE["style"]) || $_COOKIE["style"] == "clair" || (isset($_GET["style"]) && $_GET["style"] == "clair")): ?>
-            <a href="?style=sombre" class="dark-mode">🌙 Mode sombre</a>
+            <a href="?style=sombre" class="dark-mode">🌙 Mode nuit</a>
             <?php else: ?>
             <a href="?style=clair" class="light-mode">☀️ Mode jour</a>
             <?php endif; ?>
