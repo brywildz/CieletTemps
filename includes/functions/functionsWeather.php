@@ -3,8 +3,19 @@
 declare(strict_types=1);
 
 function getLocalisation(string $insee){
-    $url = "https://geo.api.gouv.fr/communes/".$insee."?fields=nom,centre";
-    $data = file_get_contents($url);
+    $url1 = "https://geo.api.gouv.fr/communes/".$insee."?fields=nom,centre";
+    $context = stream_context_create([
+        "http" =>
+            ["timeout" => 1]
+    ]); //Pour corriger le problème ayant commencé le 17/04 (l'API ne fonctionne plus pour tout le monde)
+    $data = @file_get_contents($url1, false ,$context);
+    if($data === false){
+        $city_cp = getVille_Cp($insee);
+        $url2 = "https://api-adresse.data.gouv.fr/search/?q=".urlencode($city_cp)."&limit=1";
+        $data = file_get_contents($url2);
+        $result = json_decode($data, true);
+        return $result["features"][0]["geometry"]["coordinates"];
+    }
     $result = json_decode($data, true);
     return $result["centre"]["coordinates"];
 }

@@ -74,3 +74,17 @@ function getInseeCode(string $cityName) : string
     }
     return "Ville ou code INSEE introuvable";
 }
+
+function getVille_Cp(string $insee) : ?string
+{
+    $path = "csv/communes.csv";
+    $file = fopen($path, "r");
+    if($file !== false) {
+        while (($line = fgetcsv($file, 1000, ",")) !== false) {
+            if (isset($line[1]) && $line[1] == $insee) {
+                return $line[2] . " " . $line[20];
+            }
+        }
+    }
+    return null;
+}

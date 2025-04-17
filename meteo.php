@@ -10,10 +10,10 @@ include "includes/pageParts/header.inc.php";
 ?>
 <h1 class="default-h1">Carte météo</h1>
 <section class="meteoS">
-    <h2>Prévision météo</h2>
+    <h2 class="default-h2">Prévision météo</h2>
     <?php if (isset($_COOKIE["derniere_ville"])): ?>
         <div class="derniere-ville">
-            <h2>📍 Dernière ville consultée</h2>
+            <h2 class="default-h2">📍 Dernière ville consultée</h2>
             <p>Vous avez récemment consulté la météo de <strong><?= htmlspecialchars($_COOKIE["derniere_ville"]) ?></strong>.</p>
             <a class="href_derniere" href="meteo.php?city=<?= urlencode($_COOKIE["derniere_ville"]) ?>" style="display:inline-block; margin-top:0.5rem; padding:0.5rem 1rem; background:#48aafb; color:white; border-radius:5px; text-decoration:none;">Voir à nouveau</a>
         </div>

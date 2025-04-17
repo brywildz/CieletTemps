@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
 .locate-info{
     border-radius: 20px;
     background-color: #cccccc;
@@ -35,4 +37,82 @@
 }
 .see-more:hover {
     background-color: #57d3ff;
+}
+
+.h2-presentation{
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+
+.learn-more{
+    display: block;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 15px 0 15px;
+    line-height: 1.2;
+}
+
+.learn-more-title{
+    font-family: 'Playfair Display', serif;
+    /*font-family: 'Cormorant Garamond', serif;*/
+    /*font-family: 'Lora', serif;*/
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 40px;
+}
+
+.learn-more div{
+    display: flex;
+    justify-content: center;
+    padding : 30px;
+}
+
+.learn-more div p{
+    font-family: 'Playfair Display', serif;
+    text-align: left;
+    font-size: 35px;
+    padding: 20px;
+}
+
+.learn-more div img{
+    justify-content: center;
+    border-radius: 10px;
+    margin-left: 80px;
+}
+
+.h2-question{
+    text-align: left;
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+
+.question-parent{
+    display: flex;
+    flex-direction: row;
+}
+
+.question-child{
+    display: flex;
+    flex-direction: column;
+}
+
+.question{
+    display: block;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.question-symbole{
+    display: block;
+    margin-bottom: 20px;
+    padding-top: 22px;
+    font-size: 20px;
+}
+
+.question:last-child{
+    display: block;
+    margin-bottom: auto;
 }

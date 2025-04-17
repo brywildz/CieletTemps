@@ -1,40 +1,21 @@
 1) Afficher plus d'info sur la journée + les prévisions
-2) Peaufiner le CSS
+2) parcours des dossiers pour images aléatoires
+3) ajouter + de statistiques
 
-<div class="meteo">
-            <div class="meteo-in">
-                <div class="meteo-info-degre">
-                    <p style="font-size: 50px"><?= $weatherTab["deg"] ?>°</p>
-                    <p style="font-size: 20px">Ressenti <?=$weatherTab["feel"]?> </p>
-                    <p>min : <?= $weatherTab["min"]?></p>
-                    <p>max : <?= $weatherTab["min"]?></p>
-                </div>
-                <div class="meteo-info">
-                    <img src="https://openweathermap.org/img/wn/<?= $weatherTab["img"]?>@2x.png" alt="Illustration météo"/>
-                    <p><?=ucfirst($weatherTab["desc"])?></p>
-                </div>
+☁️ 1. Les nuages peuvent peser plusieurs tonnes
+Un nuage cumulus moyen contient plus de 500 tonnes d’eau, pourtant il flotte grâce à la légèreté de l’air chaud qui le porte.
+➡️ Ce paradoxe est un excellent exemple de physique atmosphérique !
 
-                <div class="meteo-info">
-                    <p>Vitesse du<br>vent</p>
-                    <p><?=$weatherTab["wind"]?> m/s</p>
-                </div>
-                <div class="meteo-info">
-                    <p>Couverture<br>nuageuse</p>
-                    <p><?= $weatherTab["clouds"] ?>%</p>
-                </div>
-                <div class="meteo-info">
-                    <p>Humidité</p>
-                    <p><?= $weatherTab["humidity"] ?>%</p>
-                </div>
-                <!--<div class="meteo-info">
-                    <p>Couverture<br>nuageuse</p>
-                    <p><?= $weatherTab["cloud"] ?>%</p>
-                </div>-->
-            </div>
-        </div>
+🌡️ 2. La température la plus haute jamais mesurée est de 56,7 °C
+Elle a été enregistrée en 1913 dans la Vallée de la Mort (Californie, USA).
+➡️ Mais ce record est encore controversé par certains climatologues.
 
-        .container {
-            width: 85%;
-            margin: auto;
-            max-width: 1200px;
-        }
+❄️ 3. Il peut neiger même si la température est supérieure à 0°C
+Tant que l’air est sec et froid en altitude, les flocons peuvent survivre jusqu’au sol, même si le thermomètre affiche +1 ou +2 °C au niveau du sol.
+
+🌦️ 4. <p>Les premières gouttes d’une averse sont souvent les plus grosses</p
+<p>Au début d'une pluie, les grosses gouttes tombent d'abord car elles se forment plus haut dans le nuage.<br> Ensuite, les gouttes deviennent plus petites et régulières.</p>
+
+⛈️ 5. Les éclairs frappent plus souvent les gratte-ciels que les arbres
+Contrairement à la croyance populaire, les bâtiments élevés sont les premières cibles des éclairs.
+➡️ Le Burj Khalifa est frappé des dizaines de fois par an.
