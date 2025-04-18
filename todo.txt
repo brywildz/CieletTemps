@@ -1,21 +1,241 @@
 1) Afficher plus d'info sur la journée + les prévisions
-2) parcours des dossiers pour images aléatoires
+2) améliorer les redirection sur les clique des boutons
 3) ajouter + de statistiques
 
-☁️ 1. Les nuages peuvent peser plusieurs tonnes
-Un nuage cumulus moyen contient plus de 500 tonnes d’eau, pourtant il flotte grâce à la légèreté de l’air chaud qui le porte.
-➡️ Ce paradoxe est un excellent exemple de physique atmosphérique !
 
-🌡️ 2. La température la plus haute jamais mesurée est de 56,7 °C
-Elle a été enregistrée en 1913 dans la Vallée de la Mort (Californie, USA).
-➡️ Mais ce record est encore controversé par certains climatologues.
+.main-footer {
+    background-color: #f5f5f5;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #ccc;
+    flex-wrap: wrap;
+}
 
-❄️ 3. Il peut neiger même si la température est supérieure à 0°C
-Tant que l’air est sec et froid en altitude, les flocons peuvent survivre jusqu’au sol, même si le thermomètre affiche +1 ou +2 °C au niveau du sol.
+.footer-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 4rem;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
 
-🌦️ 4. <p>Les premières gouttes d’une averse sont souvent les plus grosses</p
-<p>Au début d'une pluie, les grosses gouttes tombent d'abord car elles se forment plus haut dans le nuage.<br> Ensuite, les gouttes deviennent plus petites et régulières.</p>
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 200px;
+}
 
-⛈️ 5. Les éclairs frappent plus souvent les gratte-ciels que les arbres
-Contrairement à la croyance populaire, les bâtiments élevés sont les premières cibles des éclairs.
-➡️ Le Burj Khalifa est frappé des dizaines de fois par an.
+.footer-column h4,
+.footer-column ul {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-column ul {
+    list-style: none;
+    margin-top: 0.5rem;
+}
+
+.footer-column li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.2s;
+    padding-left: 0;
+}
+
+.footer-column a:hover {
+    color: #48aafb;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    color: #555;
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+}
+.classic h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.content-flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 0 2rem;
+}
+
+.classic h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.classic ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.classic ul li {
+    margin-bottom: 0.5rem;
+}
+
+.classic ul li a {
+    color: #48aafb;
+    text-decoration: none;
+}
+
+.classic ul li a:hover {
+    text-decoration: underline;
+}
+.footer-social img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+    margin: 8px auto;
+}
+
+.sitemap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem;
+    padding: 2rem;
+}
+
+.sitemap-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    text-align: center;
+}
+
+.sitemap-column h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+<section class="meteoS" style="background-image: url('images/meteo/barre.png'); background-repeat: repeat-y;background-position: center center;background-size: auto;">
+        <h2>Prévisions sur cinq jours</h2>
+        <div class="forecast">
+            <h3>Météo du <?= $forecastTab[0]["date"] ?></h3>
+            <div class="forecast-day">
+                <div class="forecast-item">
+                    <h4>TEMPERATURE</h4>
+                    <div style="display: flex">
+                        <img src="https://openweathermap.org/img/wn/<?= $forecastTab[0]["img"] ?>@2x.png" alt="Illustration météo"/>
+                        <p style="font-size: 50px"><?= $forecastTab[0]["deg"] ?>°</p>
+                    </div>
+                    <div class="sun-details">
+                        <div>
+                            <p class="icon">🎯</p>
+                            <div style="display: block; margin-left: 8px;">
+                                <p><b><?= $forecastTab[0]["feel"] ?>°</b></p>
+                                <p style="font-size: 16px">Ressenti</p>
+                            </div>
+
+                        </div>
+                        <div>
+                            <p class="icon">🔥</p>
+                            <div style="display: block; margin-left: 8px;">
+                                <p> <b><?= $forecastTab[0]["max"] ?>°</b></p>
+                                <p style="font-size: 16px">Maximum</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="icon">💬</p>
+                            <div style="display: block; margin-left: 8px;">
+                                <p><b><?= ucfirst($forecastTab[0]["desc"]) ?></b></p>
+                                <p style="font-size: 16px">Commentaire</p>
+                            </div>
+
+                        </div>
+                        <div>
+                            <p class="icon">❄️</p>
+                            <div style="display: block; margin-left: 8px;">
+                                <p> <b><?= $forecastTab[0]["min"] ?>°</b></p>
+                                <p style="font-size: 16px">Minimum</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <img src="images/meteo/separation-line.png" alt="trait"/>
+
+                <div class="forecast-item">
+                    <h4>PRECIPITATION</h4>
+                    <div style="display: flex">
+                        <img src="images/meteo/water.png" alt="Illustration météo"/>
+                        <p style="font-size: 50px"><?= $forecastTab[0]["rain_prob"] ?>%</p>
+                    </div>
+                    <div class="sun-details">
+                        <div>
+                            <p class="icon">☁️</p>
+                            <div style="display: block; margin-left: 8px;">
+                                <p><b><?= $forecastTab[0]["clouds"] ?>%</b></p>
+                                <p style="font-size: 16px">Nuages</p>
+                            </div>
+
+                        </div>
+                        <div>
+                            <p class="icon">💨</p>
+                            <div style="display: block; margin-left: 8px;">
+                                <p> <b><?= $forecastTab[0]["wind"] ?>m/s</b></p>
+                                <p style="font-size: 16px">Vent</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="icon">💧</p>
+                            <div style="display: block; margin-left: 8px;">
+                                <p><b><?= ucfirst($forecastTab[0]["humidity"]) ?>%</b></p>
+                                <p style="font-size: 16px">Humidité</p>
+                            </div>
+
+                        </div>
+                        <div>
+                            <p class="icon">🌡️</p>
+                            <div style="display: block; margin-left: 8px;">
+                                <p> <b><?= $forecastTab[0]["pressure"] ?>hPa</b></p>
+                                <p style="font-size: 16px">Pression</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img src="images/meteo/separation-line.png" alt="trait"/>
+
+                <div class="forecast-item">
+                    <h4>VISIBILITÉ</h4>
+                    <div style="display: flex">
+                        <img src="images/meteo/road.png" alt="Illustration météo"/>
+                        <p style="font-size: 50px"><?= $forecastTab[0]["visibility"]?>km</p>
+                    </div>
+                    <p style="font-size: 25px"><b>Conditions</b></p>
+                    <p style="font-size: 20px"><?= $forecastTab[0]["visibility-text"] ?></p>
+                </div>
+            </div>
+        </div>
+    </section>

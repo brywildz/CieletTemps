@@ -1,14 +1,45 @@
 h1{
-    margin-bottom: 20px;
-    color: #e0b94d;
+    margin-bottom: 40px;
+    color: #3f3f3f;
     font-size: 40px;
-    background-color: #006eff;
+    background-color: rgba(255, 255, 255, 0.38);
     border-radius: 10px;
     padding: 10px;
 }
 
+.last-city{
+    border-radius: 20px;
+    background-color: #cccccc;
+    width: 20%;
+    padding: 20px;
+    margin-left: 75%;
+    margin-top: 10%;
+}
+
+.last-city h2{
+    text-align: left;
+    font-size: 20px;
+}
+
+.see-more{
+    text-decoration: none;
+    font-size: 18px;
+    color: #d1d1e0;
+    letter-spacing: 1px;
+    background-color: #256f9a;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.see-more:hover {
+    background-color: #57d3ff;
+}
+
+
 .search-section{
-    background-image: url('../../images/meteo/sky-background.jpg');
+    background-image: url('../../images/meteo/sky-background.webp');
     height: 900px;
     display: flex;
     flex-direction: column;
@@ -35,23 +66,60 @@ h1{
 
 }
 
-.searchButton {
-    font-size: 1.2em;
-    line-height: 1.4em;
-    margin-left: 10px;
-    color: #000000;
-    float: right;
-    width: 150px;
-    height: 50px;
-    border-radius: 12px;
-    border: none;
-    background: #cecee0;
+.search-form {
     display: flex;
-    justify-content: center;
     align-items: center;
-    transition: 0.4s;
+    width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 100px;
+    overflow: hidden;
+    background-color: #f9f9f9;
 }
 
-.result{
-
+.search-input {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    font-size: 30px;
+    outline: none;
+    background: transparent;
 }
+
+.search-button {
+    padding: 9px 12px;
+    background-color: #e0e0e0;
+    border: none;
+    cursor: pointer;
+    font-size: 31px;
+    transition: background-color 0.2s ease;
+}
+
+.search-button:hover {
+    background-color: #ccc;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.meteoSearch{
+    margin-top: 30px;
+    background-image: url('../../images/meteo/blue-background.jpg');
+    padding : 20px;
+    color: #000000;
+    display: block;
+    border-radius: 10px;
+    align-items: center;
+    height: 380px;
+    width: 1300px;
+}
+

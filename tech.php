@@ -14,7 +14,7 @@ $titleJson = $tabJson["title"];
 $url = $tabJson["url"];
 ?>
 <h1 class="default-h1">Bienvenue dans notre page développeur</h1>
-<section class="default-section">
+<section class="default-section" id="image">
     <h2 class="default-h2">Image du jour de la NASA</h2>
     <p>Chaque jour la NASA publie une image/vidéo issue de notre univers, nous pouvons extraire
         son contenu en utilisant directement l'API fournit par la NASA.</p>
@@ -70,7 +70,7 @@ $url = $tabJson["url"];
     </div>
 
 </section>
-<section class="default-section">
+<section class="default-section" id="ip">
     <h2 class="default-h2">Géolocalisation avec adresse IP</h2>
     <article>
         <h3>Format PHP</h3>

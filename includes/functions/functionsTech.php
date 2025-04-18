@@ -49,6 +49,6 @@ function getPositionXML2(): mixed
 {
     $ip = $_SERVER['REMOTE_ADDR'];
     $url = "https://api.whatismyip.com/ip-address-lookup.php?key="."fcddc989ff4010c22b4b37a67d100da1"."&input=".$ip.".235&output=xml";
-    $geoData = simplexml_load_string(file_get_contents($url));
+    $geoData = @simplexml_load_string(file_get_contents($url));
     return $geoData;
 }

@@ -8,7 +8,7 @@ include "includes/pageParts/header.inc.php";
 
     <h1 class="default-h1">Informations statistiques</h1>
 
-    <section class="default-section">
+    <section class="default-section" id="stats">
         <h2 class="default-h2">Les villes les plus consultées de notre site</h2>
         <p>Pour simplifier la lecture, la valeur maximale est projetée sur une échelle arrondie supérieure (ex. 1000 au lieu de 936),
             utilisée comme référence pour le calcul des proportions graphiques.</p>

@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 function getRandomImage() : mixed
 {
-    $images = glob("imageAleatoire/new/*.webp");
+    $images = glob("images/meteo/imageAleatoire/new/*.webp");
     $index = array_rand($images);
     return $images[$index];
 }

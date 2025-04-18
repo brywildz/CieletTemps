@@ -11,15 +11,15 @@ include "includes/functions/functionRandomImage.php";
 
     <section class="accueil">
         <h1 class="newgen">Ciel&Temps</h1>
-        <p class="slogan"><em>Les infos du ciel à tout temps !</em></p>
-        <div class="locate-info">
+        <p class="slogan"><em>Votre météo, tout simplement.</em></p>
+        <div class="locate-info" id="locateWeather">
             <?php
             $geoJson = getPositionJSON();
             //list($latitude, $longitude) = explode(",", $geoJson["loc"]);
-            $insee = getInseeCode($geoJson["city"]);
-            $weather = getWeather($insee);
+            $coo = getLocalisation(getInseeCode($geoJson["city"]));
+            $weather = getWeather($coo);
             ?>
-            <h2 class="default-h2"><?= $geoJson["city"] ?> : <?= $weather["weather"][0]["description"] ?></h2>
+            <h2><?= $geoJson["city"] ?> : <?= $weather["weather"][0]["description"] ?></h2>
             <div style="display: flex">
                 <img src="https://openweathermap.org/img/wn/<?= $weather["weather"][0]["icon"] ?>@2x.png" alt="Illustration météo"/>
                 <p style="font-size: 35px"><?= $weather["main"]["temp"] ?>°C</p>
@@ -31,23 +31,36 @@ include "includes/functions/functionRandomImage.php";
     <h2 class="h2-presentation">La météo à portée de clic</h2>
     <p style="font-size: 20px; margin-bottom: 20px">
         Bienvenue sur <strong>Ciel&Temps</strong>, votre plateforme météo intelligente et interactive.
-        Ce site vous permet de consulter en temps réel les <strong>prévisions météo</strong> selon votre <em>région</em>, <em>département</em> ou <em>ville</em>.
-        Grâce à notre système de <strong>géolocalisation</strong>, vous pouvez connaître immédiatement la météo là où vous vous trouvez.
+        Ce site vous permet de consulter en temps réel les <strong>prévisions météo</strong> selon votre ville.
+        De plus grâce à notre système de <strong>géolocalisation</strong>, vous pouvez connaître immédiatement la météo là où vous vous trouvez.
+    </p>
+
+    <p style="font-size: 20px; margin-bottom: 20px">
+        <strong>Qu’il pleuve des cordes ou qu’il fasse un temps radieux</strong>, la météo occupe une place essentielle dans
+        <strong>notre quotidien.</strong>
+        Elle influence <strong>nos déplacements, nos activités</strong>, et parfois même <strong>nos décisions.</strong> Comprendre le temps qu’il fait,
+        c’est aussi mieux <strong>anticiper</strong> ce qui vient, <strong>s’adapter à son environnement</strong>, et développer une forme de vigilance face aux caprices du climat.
+    </p>
+    <p style="font-size: 20px; margin-bottom: 20px">
+        Notre défi est de vous offrir un accès <strong>simple, clair</strong> et pratique aux <strong>informations
+            météorologiques</strong> dont vous avez besoin, chaque jour.
     </p>
 
     <p style="font-size: 20px">
-        En plus des prévisions classiques, vous y trouverez une <strong>carte interactive</strong>, des <strong>données issues d’API météo</strong>,
-        ainsi que des fonctionnalités en cours de développement, comme l’analyse de tendances climatiques.
+        Pour consulter les informations météorologiques, vous pouvez consulter notre <strong>carte interactive</strong> des régions de France ou
+        indiquer la ville via notre <strong>barre de recherche</strong>. Par ailleurs il vous est possible d'accéder à diverses informations liées
+        <strong>aux statistiques</strong>,
+        de notre site.
     </p>
 
 </section>
 
 <?php
 $img = getRandomImage();
-$color = getColorfor($img);
+$color = getColorFor($img);
 ?>
 
-<section class="learn-more" style="background-color: <?=$color[0]?>">
+<section class="learn-more" style="background-color: <?=$color[0]?>" id="info">
     <h2 class="learn-more-title" style="color: <?=$color[1] ?>">Apprenez en plus sur la nature<br>avec notre info météo</h2>
 
 
@@ -59,7 +72,7 @@ $color = getColorfor($img);
     </div>
 </section>
 
-<section class="default-section">
+<section class="default-section" id="faq">
     <h2 class="h2-question">Questions fréquemment posées</h2>
     <div class="question-parent">
         <div class="question-child">
