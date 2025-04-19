@@ -33,11 +33,18 @@ function getPositionXML(): mixed
  */
 function getPositionJSON(): mixed
 {
+    try{
     $ip = $_SERVER['REMOTE_ADDR'];
     $url = "https://ipinfo.io/".$ip."/json?token=d167dc049c89d7";
     $geoData = file_get_contents($url);
     $resultat = json_decode($geoData, true);
     return $resultat;
+    }
+    catch(Throwable $e){
+        $resultat = array();
+        $resultat["city"] = null;
+        return $resultat;
+    }
 }
 
 /**

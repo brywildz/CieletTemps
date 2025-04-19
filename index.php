@@ -10,26 +10,45 @@ include "includes/functions/functionsGlobal.php";
 include "includes/functions/functionsTech.php";
 include "includes/functions/functionRandomImage.php";
 ?>
-    <section class="accueil">
-        <h1 class="newgen">Ciel&amp;Temps</h1>
-        <p class="slogan"><em>Votre météo, tout simplement.</em></p>
+    <section class="accueil" id="accueil">
+        <div class="title">
+            <h1 class="newgen">Ciel&amp;Temps</h1>
+            <h2 class="slogan"><em>Votre météo, tout simplement.</em></h2>
+        </div>
         <div class="locate-info" id="locateWeather">
             <?php
             $geoJson = getPositionJSON();
             //list($latitude, $longitude) = explode(",", $geoJson["loc"]);
-            $coo = getLocalisation(getInseeCode($geoJson["city"]));
+            if(isset($geoJson["city"])){
+                $coo = getLocalisation(getInseeCode($geoJson["city"]));
+            }
+            else{
+                $coo=null;
+            }
             if($coo !== null){
                 $weather = getWeather($coo);
             }
+            if(!isset ($geoJson["city"]) || !isset($weather)){
+                $city = "Ville introuvable";
+                $desc = "";
+                $temp = "Méteo indisponible";
+                $icon = null;
+            }
+            else{
+                $city = $geoJson["city"];
+                $temp = $weather["main"]["temp"];
+                $icon = $weather["weather"][0]["icon"];
+                $desc = $weather["weather"][0]["description"];
+            }
             ?>
-            <h2><?= $geoJson["city"] ?? "Ville introuvable" ?> : <?= $weather["weather"][0]["description"] ?? "" ?></h2>
+            <h2 style="font-size: 21px"><?= $city ?> : <?= $desc ?></h2>
             <div style="display: flex">
-                <?php if($weather["weather"][0]["icon"] !== null): ?>
-                <img src="https://openweathermap.org/img/wn/<?= $weather["weather"][0]["icon"] ?>@2x.png" alt="Illustration météo"/>
+                <?php if($icon !== null): ?>
+                <img src="https://openweathermap.org/img/wn/<?= $icon ?>.png" alt="Illustration météo"/>
                 <?php endif;?>
-                <p style="font-size: 35px"><?= $weather["main"]["temp"] ?? ""?>°C</p>
+                <p style="font-size: 20px"><?= $temp ?>°C</p>
             </div>
-            <a class="see-more" href="meteo.php?city=<?= $geoJson["city"] ?>#selection">Voir plus</a>
+            <a class="see-more" href="meteo.php?city=<?= $city ?>#weather">Voir plus</a>
         </div>
     </section>
 <section class="default-section" style="margin: 10% auto 10% auto">

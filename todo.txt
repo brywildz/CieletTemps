@@ -33,6 +33,14 @@ css valide{
 tout
 }
 
+link valide{
+tout
+}
+
+valide accessiblle{
+tout
+}
+
 documentation doxygen
 validation html avec les code sources
 mode sombre

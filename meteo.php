@@ -24,7 +24,7 @@ include "includes/pageParts/header.inc.php";
 
 
     <div class="map" id="map">
-        <img src="images/meteo/carte-dom.png" usemap="#image-map" alt="Carte des départements d'Outre mer"/>
+        <img src="images/meteo/carte-dom.webp" usemap="#image-map" alt="Carte des départements d'Outre mer"/>
 
         <map name="image-map">
             <area target="_self" alt="Guadeloupe" title="Guadeloupe" href="meteo.php?region=Guadeloupe" coords="6,3,144,146" shape="rect"/>
@@ -34,7 +34,7 @@ include "includes/pageParts/header.inc.php";
             <area target="_self" alt="Mayotte" title="Mayotte" href="meteo.php?region=Mayotte" coords="10,620,141,766" shape="rect"/>
         </map>
 
-        <img src="images/meteo/carte-region.png" usemap="#regionMap" alt="Carte des régions de France"/>
+        <img src="images/meteo/carte-region.webp" usemap="#regionMap" alt="Carte des régions de France"/>
         <map name="regionMap">
             <area target="_self" alt="Île-de-France" title="Île-de-France"
                   href="meteo.php?region=Île-de-France#weather"
@@ -96,14 +96,23 @@ $form = traitementGET();
 $weatherAndForecast = traitementMeteo();
 $weatherTab = $weatherAndForecast[0];
 $forecastTab = $weatherAndForecast[1];
+if($weatherTab["cond"]){
+    $h2 = "Météo actuelle";
+}
+else{
+    $h2 = "Choix du lieu";
+}
 ?>
+
 
 <?php if (($form != null) || isset($_GET['city'])):?>
 <section class="meteoS" id="weather">
-    <h2>Météo actuelle</h2>
-
+    <h2><?=$h2?></h2>
+    <?php if ($weatherTab["cond"] !== true && $weatherTab["cond"] == "introuvable"):?>
+        <p style="font-size: 30px; color: red; text-align: center">Notre système ne permet par l'affichage des données météorologiques hors France</p>
+    <?php else:?>
     <div id="selection" class='selection'>
-         <?php echo $form ?>
+         <?php echo $form; ?>
     </div>
     <?php if ($weatherTab["cond"] && $forecastTab["cond"]):?>
         <?php refreshCsv($weatherTab["city"])?>
@@ -124,7 +133,7 @@ $forecastTab = $weatherAndForecast[1];
                     <p>❄️ Min : <?= $weatherTab["min"]?>°C</p>
                         <p>🔥 Max : <?= $weatherTab["max"]?>°C</p>
                 </div>
-                <img src="images/meteo/separation-line.png" alt="trait"/>
+                <img src="images/meteo/separation-line.webp" alt="trait"/>
                 <div class="meteo-info">
                     <p style="font-size: 25px">💨 Vent : <?=$weatherTab["wind"]?> m/s</p>
                     <p style="font-size: 25px">☁️ Nuages : <?= $weatherTab["clouds"] ?>%</p>
@@ -153,6 +162,7 @@ $forecastTab = $weatherAndForecast[1];
 
     <?php endif; ?>
 </section>
+<?php endif;?>
 <?php endif;?>
 
 <?php if(isset($_GET['day'])){

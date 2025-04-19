@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 function getRandomImage() : mixed
 {
-    $images = glob("images/meteo/imageAleatoire/new/*.webp");
+    $images = glob("images/meteo/imageAleatoire/*.webp");
     $index = array_rand($images);
     return $images[$index];
 }
@@ -29,7 +29,7 @@ function printComment(string $img) : void
     $name = basename($img);
     switch ($name){
         case "clouds.webp" :
-            echo "<p>☁️ Les nuages peuvent peser plusieurs tonnes.</p>
+            echo "<p>☁️ Les nuages peuvent peser plusieurs tonnes, malgré leur apparente légèreté.</p>
                   <p>Un nuage cumulus moyen contient plus de 500 tonnes d’eau,
                   <br/>pourtant il flotte grâce à la légèreté de l’air chaud qui le porte.</p>
                   <p>➡️ Ce paradoxe est un excellent exemple de physique atmosphérique !</p>";

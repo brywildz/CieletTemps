@@ -37,6 +37,9 @@ function traitementMeteo(): array
 
     if (isset($_GET["city"]) && $_GET["city"] != null) {
         $coo = getLocalisation(getInseeCode($_GET["city"]));
+        if($coo == null){
+            return [["cond" => "introuvable"],["cond" => "introuvable"]];
+        }
         $weather = getWeather($coo);
         $organizedWeather = buildArrayWeather($weather);
 
@@ -121,8 +124,11 @@ function getSortForecast(array $forecast) : array
     return $sortForecast;
 }
 
-function getWeather(array $coo) : mixed
+function getWeather(?array $coo) : mixed
 {
+    if($coo === null){
+        return null;
+    }
     $token = "8aee9c708587f967d4842b3be0fcaf86";
     $url = "https://api.openweathermap.org/data/2.5/weather?lat=".$coo[1]."&lon=".$coo[0]."&units=metric&lang=fr&appid=".$token;
     $data = file_get_contents($url);
@@ -177,7 +183,10 @@ function buildSelect($tab, $type): string
     return $select;
 }
 
-function getLocalisation(string $insee){
+function getLocalisation(?string $insee){
+    if($insee === null){
+        return null;
+    }
     try {
     $url1 = "https://geo.api.gouv.fr/communes/".$insee."?fields=nom,centre";
     $context = stream_context_create([
@@ -252,12 +261,12 @@ function printForecastAll(array $forecastTab): string
               </div>
               </div>
 
-              <img src="images/meteo/separation-line.png" alt="trait"/>
+              <img src="images/meteo/separation-line.webp" alt="trait"/>
 
               <div class="forecast-item">
               <h4>PRECIPITATION</h4>
               <div style="display: flex">
-              <img src="images/meteo/water.png" alt="Illustration météo"/>
+              <img src="images/meteo/water.webp" alt="Illustration météo"/>
               <p style="font-size: 50px">'. $forecastTab[$i]["rain_prob"].'%</p>
               </div>
               <div class="sun-details">
@@ -293,12 +302,12 @@ function printForecastAll(array $forecastTab): string
               </div>
               </div>
               </div>
-              <img src="images/meteo/separation-line.png" alt="trait"/>
+              <img src="images/meteo/separation-line.webp" alt="trait"/>
 
               <div class="forecast-item">
               <h4>VISIBILITÉ</h4>
               <div style="display: flex">
-              <img src="images/meteo/road.png" alt="Illustration météo"/>
+              <img src="images/meteo/road.webp" alt="Illustration météo"/>
               <p style="font-size: 50px">'. $forecastTab[$i]["visibility"].'km</p>
               </div>
               <p style="font-size: 25px"><b>Conditions</b></p>
@@ -357,12 +366,12 @@ function printForecast(array $forecastTab, int $i): string
         </div>
         </div>
 
-        <img src="images/meteo/separation-line.png" alt="trait"/>
+        <img src="images/meteo/separation-line.webp" alt="trait"/>
 
         <div class="forecast-item">
         <h4>PRECIPITATION</h4>
         <div style="display: flex">
-        <img src="images/meteo/water.png" alt="Illustration météo"/>
+        <img src="images/meteo/water.webp" alt="Illustration météo"/>
         <p style="font-size: 50px">'. $forecastTab[$i]["rain_prob"].'%</p>
         </div>
         <div class="sun-details">
@@ -398,12 +407,12 @@ function printForecast(array $forecastTab, int $i): string
         </div>
         </div>
         </div>
-        <img src="images/meteo/separation-line.png" alt="trait"/>
+        <img src="images/meteo/separation-line.webp" alt="trait"/>
 
         <div class="forecast-item">
         <h4>VISIBILITÉ</h4>
         <div style="display: flex">
-        <img src="images/meteo/road.png" alt="Illustration météo"/>
+        <img src="images/meteo/road.webp" alt="Illustration météo"/>
         <p style="font-size: 50px">'. $forecastTab[$i]["visibility"].'km</p>
         </div>
         <p style="font-size: 25px"><b>Conditions</b></p>

@@ -45,30 +45,30 @@
         <?php endif; ?>
         <link rel="stylesheet" href="style/light/footer.css"/>
         <title><?= $title ?></title>
-        <link rel="icon" type="image/png" href="images/header/favicon.png" />
+        <link rel="icon" type="image/png" href="images/header/favicon.webp" />
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="index.php?style=<?=$_GET["style"]?>">
-                <img src="images/header/logo-nav.png" alt="icone du site"/>
+            <a href="index.php">
+                <img src="images/header/logo-nav.webp" alt="icone du site"/>
             </a>
         </div>
         <nav>
             <ul>
                 <li class="menu-deroulant">
-                    <a href="search.php?style=<?=$_GET["style"]?>">Explorer ▾</a>
+                    <a href="index.php#accueil">Explorer ▾</a>
                     <div class="choice-list">
-                            <a href="search.php?style=<?=$_GET["style"]?>">
-                            <img src="images/header/search-text.png" alt="icone de carte"/>
+                            <a href="search.php">
+                            <img src="images/header/search-text.webp" alt="icone de carte"/>
                         </a>
-                            <a href="meteo.php?style=<?=$_GET["style"]?>">
-                                <img src="images/header/search-map.png" alt="icone de carte"/>
+                            <a href="meteo.php">
+                                <img src="images/header/search-map.webp" alt="icone de carte"/>
                             </a>
                     </div>
                 </li>
-                <li><a class="select-nav" href="stats.php?style=<?=$_GET["style"]?>">Statistiques</a></li>
-                <li><a class="select-nav" href="about.php?style=<?=$_GET["style"]?>">À propos</a></li>
+                <li><a class="select-nav" href="stats.php">Statistiques</a></li>
+                <li><a class="select-nav" href="about.php">À propos</a></li>
             </ul>
         </nav>
         <div class="style-toggle">

@@ -24,7 +24,7 @@ include "includes/pageParts/header.inc.php";
 
     <div class="author-div">
         <div>
-            <img src="images/about/dylan.png" alt="Photo de Dylan"/>
+            <img src="images/about/dylan.webp" alt="Photo de Dylan"/>
             <h3>Dylan Manseri</h3>
             <p>
                 Passionné d’informatique depuis toujours, curieux de tout ce qui touche au web, aux interfaces et à l'expérience utilisateur.
@@ -34,7 +34,7 @@ include "includes/pageParts/header.inc.php";
         </div>
 
         <div>
-            <img src="images/about/amadou.jpg" alt="Photo d'Amadou"/>
+            <img src="images/about/amadou.webp" alt="Photo d'Amadou"/>
             <h3>Amadou Bawol</h3>
             <p>
                 Avides de savoir et passionné par les défis techniques,

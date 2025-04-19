@@ -4,18 +4,18 @@
     <div class="footer-content">
         <div class="footer-social">
             <a href="https://x.com/EtTemps81032" target="_blank">
-                <img src="images/footer/twitter.png" alt="X"/>
+                <img src="images/footer/twitter.webp" alt="X"/>
             </a>
             <a href="https://www.instagram.com/cielettemps_officiel" target="_blank">
-                <img src="images/footer/instagram.png" alt="Instagram"/>
+                <img src="images/footer/instagram.webp" alt="Instagram"/>
             </a>
             <a href="https://www.youtube.com/@CielEtTemps-Officiel" target="_blank">
-                <img src="images/footer/youtube.png" alt="YouTube"/>
+                <img src="images/footer/youtube.webp" alt="YouTube"/>
             </a>
         </div>
 
         <div class="footer-column">
-            <h4>🌐 Ciel&amp;Temps</h4>
+            <p>🌐 Ciel&amp;Temps</p>
             <ul>
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="meteo.php">Prévisions météo</a></li>
@@ -25,7 +25,7 @@
         </div>
 
         <div class="footer-column">
-            <h4>⚙️ Fonctionnalités</h4>
+            <p>⚙️ Fonctionnalités</p>
             <ul>
                 <li><a href="meteo.php#map">Recherche par région/département</a></li>
                 <li><a href="index.php#locateWeather">Localisation automatique</a></li>
@@ -39,7 +39,7 @@
         </div>
 
         <div class="footer-column">
-            <h4>🗂️ Ressources</h4>
+            <p>🗂️ Ressources</p>
             <ul>
                 <li><a href="sitemap.php">Sitemap</a></li>
                 <li><a href="mentions.php">Mentions légales</a></li>

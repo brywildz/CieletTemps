@@ -63,7 +63,7 @@ $url = $tabJson["url"];
         </table>
         <div class="double-content-vertical">
             <a href="https://en.wikipedia.org/wiki/NASA" target="_blank">
-                <img src="images/tech/logoNASA.png" alt="Logo de la NASA"/>
+                <img src="images/tech/logoNASA.webp" alt="Logo de la NASA"/>
             </a>
             <p>La NASA (National Aeronautics and Space Administration) est l'agence spatiale américaine chargée
                 de l'exploration de l'espace, de la recherche scientifique et du développement de technologies

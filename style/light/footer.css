@@ -6,8 +6,14 @@
     border-top: 1px solid #ccc;
     flex-wrap: wrap;
 }
-h4{
+
+.footer-column p{
     color: #1c1c1c;
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    font-weight: bold;
 }
 
 .footer-content {
@@ -62,8 +68,6 @@ h4{
 }
 
 .footer-social img {
-    width: 24px;
-    height: 24px;
     object-fit: contain;
     display: block;
     margin: 8px auto;

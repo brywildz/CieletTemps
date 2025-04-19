@@ -61,8 +61,11 @@ function getCities(string $departmentName): array
     return $villes;
 }
 
-function getInseeCode(string $cityName) : string
+function getInseeCode(?string $cityName) : ?string
 {
+    if($cityName === null){
+        return null;
+    }
     $path = "csv/communes.csv";
     $file = fopen($path, "r");
     if($file !== false){
@@ -72,7 +75,7 @@ function getInseeCode(string $cityName) : string
             }
         }
     }
-    return "Ville ou code INSEE introuvable";
+    return null;
 }
 
 function getVille_Cp(string $insee) : ?string

@@ -55,7 +55,7 @@ include "includes/pageParts/header.inc.php";
                 <p>❄️ Min : <?= $weatherTab["min"] ?>°C</p>
                 <p>🔥 Max : <?= $weatherTab["max"] ?>°C</p>
             </div>
-            <img src="images/meteo/separation-line.png" alt="trait"/>
+            <img src="images/meteo/separation-line.webp" alt="trait"/>
             <div class="meteo-info">
                 <p style="font-size: 25px">💨 Vent : <?= $weatherTab["wind"] ?> m/s</p>
                 <p style="font-size: 25px">☁️ Nuages : <?= $weatherTab["clouds"] ?>%</p>

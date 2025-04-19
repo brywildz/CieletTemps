@@ -2,10 +2,10 @@
 
 .locate-info{
     border-radius: 20px;
-    background-color: #cccccc;
-    width: 20%;
+    background-color: rgba(232, 232, 232, 0.6);
+    width: 15%;
     padding: 20px;
-    margin-left: 75%;
+    margin-left: 78%;
     margin-top: 10%;
 }
 
@@ -15,25 +15,33 @@
 }
 
 
+.title{
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    background-color: rgba(194, 194, 194, 0.56);
+    border-radius: 20px;
+    margin-left: 30%;
+    width: 400px;
+    height: 140px;
+    padding-left: 20px;
+    margin-top: 100px;
+}
 
 .newgen{
     font-size: 50px;
-    color: white;
-    margin-left: 30%;
-    padding-top: 5%;
+    color: #f0f0f0;
 }
 
 .slogan{
     font-size: 25px;
-    color: #e0e0e0;
-    margin-left: 30%;
+    color: #F0F0F0;
+    text-align: left;
 
 }
 
 .see-more{
     text-decoration: none;
     font-size: 18px;
-    color: #d1d1e0;
+    color: #F0F0F0;
     letter-spacing: 1px;
     background-color: #256f9a;
     border: none;
@@ -43,7 +51,7 @@
     transition: 0.3s ease;
 }
 .see-more:hover {
-    background-color: #57d3ff;
+    background-color: #3e3f94;
 }
 
 .h2-presentation{
