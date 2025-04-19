@@ -1,36 +1,37 @@
 <?php
+$title = "Prévisions";
+$metaDesc ="Consultez la météo en France grâce à notre carte interactive intuitive, région par région, en temps réel.";
+$metaKeywords ="météo, carte interactive, prévisions, France, régions, géolocalisation, météo France";
 $css = "meteo.css";
-include "includes/functions/functions.inc.php";
+include "includes/functions/functionsGlobal.php";
 include "includes/functions/functionRanking.php";
 if (isset($_GET["city"]) && $_GET["city"] != null) {
     setcookie("derniere_ville", $_GET["city"], time() + 60 * 60 * 24 * 7);
 }
-$title = "Prévisions";
 include "includes/pageParts/header.inc.php";
 ?>
 <h1 style="margin-top: 40px">Prévisions météo interactive par région</h1>
 <section class="meteoS">
     <h2>Carte des régions de France</h2>
-    <article class="meteoS">
     <?php if (isset($_COOKIE["derniere_ville"])): ?>
-        <div class="derniere-ville">
-            <h2 class="default-h2">📍 Dernière ville consultée</h2>
+    <article class="derniere-ville" id="derniere_ville">
+
+        <h2 class="default-h2">📍 Dernière ville consultée</h2>
             <p>Vous avez récemment consulté la météo de <strong><?= htmlspecialchars($_COOKIE["derniere_ville"]) ?></strong>.</p>
-            <a class="href_derniere" href="meteo.php?city=<?= urlencode($_COOKIE["derniere_ville"]) ?>" style="display:inline-block; margin-top:0.5rem; padding:0.5rem 1rem; background:#48aafb; color:white; border-radius:5px; text-decoration:none;">Voir à nouveau</a>
-        </div>
-    <?php endif; ?>
+            <a class="href_derniere" href="meteo.php?city=<?= urlencode($_COOKIE["derniere_ville"]) ?>#weather" style="display:inline-block; margin-top:0.5rem; padding:0.5rem 1rem; background:#48aafb; color:white; border-radius:5px; text-decoration:none;">Voir à nouveau</a>
     </article>
+    <?php endif; ?>
 
 
     <div class="map" id="map">
-        <img src="images/meteo/carte-dom.png" usemap="#image-map">
+        <img src="images/meteo/carte-dom.png" usemap="#image-map" alt="Carte des départements d'Outre mer"/>
 
         <map name="image-map">
-            <area target="_self" alt="Guadeloupe" title="Guadeloupe" href="meteo.php?region=Guadeloupe" coords="6,3,144,146" shape="rect">
-            <area target="_self" alt="Martinique" title="Martinique" href="meteo.php?region=Martinique" coords="10,157,142,294" shape="rect">
-            <area target="_self" alt="Guyane" title="Guyane" href="meteo.php?region=Guyane" coords="5,307,135,452" shape="rect">
-            <area target="_self" alt="La Réunion" title="La Réunion" href="meteo.php?region=La Réunion" coords="8,463,148,601" shape="rect">
-            <area target="_self" alt="Mayotte" title="Mayotte" href="meteo.php?region=Mayotte" coords="10,620,141,766" shape="rect">
+            <area target="_self" alt="Guadeloupe" title="Guadeloupe" href="meteo.php?region=Guadeloupe" coords="6,3,144,146" shape="rect"/>
+            <area target="_self" alt="Martinique" title="Martinique" href="meteo.php?region=Martinique" coords="10,157,142,294" shape="rect"/>
+            <area target="_self" alt="Guyane" title="Guyane" href="meteo.php?region=Guyane" coords="5,307,135,452" shape="rect"/>
+            <area target="_self" alt="La Réunion" title="Réunion" href="meteo.php?region=La+Réunion" coords="8,463,148,601" shape="rect"/>
+            <area target="_self" alt="Mayotte" title="Mayotte" href="meteo.php?region=Mayotte" coords="10,620,141,766" shape="rect"/>
         </map>
 
         <img src="images/meteo/carte-region.png" usemap="#regionMap" alt="Carte des régions de France"/>
@@ -150,9 +151,8 @@ $forecastTab = $weatherAndForecast[1];
             </div>
         </div>
 
-        </section>
-
     <?php endif; ?>
+</section>
 <?php endif;?>
 
 <?php if(isset($_GET['day'])){

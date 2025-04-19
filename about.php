@@ -1,5 +1,7 @@
 <?php
 $title = "À propos";
+$metaDesc ="Découvrez les objectifs, la démarche et l’équipe derrière Ciel &amp; Temps, projet universitaire en informatique.";
+$metaKeywords ="à propos, projet, étudiants, L2 informatique, CY Cergy, équipe, présentation";
 $css = "about.css";
 include "includes/pageParts/header.inc.php";
 ?>
@@ -13,7 +15,7 @@ include "includes/pageParts/header.inc.php";
     </p>
 
     <p>
-        <strong>Ciel&Temps</strong> est né de notre envie de créer un site utile et accessible à tous. L'idée : proposer une interface claire
+        <strong>Ciel&amp;Temps</strong> est né de notre envie de créer un site utile et accessible à tous. L'idée : proposer une interface claire
         pour consulter la météo, découvrir des images inspirantes, et en apprendre un peu plus sur le climat, le tout de façon interactive
         et agréable. C’est un projet pédagogique, mais qu’on a voulu soigner, fonctionnel, et un peu ambitieux aussi.
     </p>
@@ -22,7 +24,7 @@ include "includes/pageParts/header.inc.php";
 
     <div class="author-div">
         <div>
-            <img src="images/about/dylan.png" alt="Photo de Dylan">
+            <img src="images/about/dylan.png" alt="Photo de Dylan"/>
             <h3>Dylan Manseri</h3>
             <p>
                 Passionné d’informatique depuis toujours, curieux de tout ce qui touche au web, aux interfaces et à l'expérience utilisateur.
@@ -32,7 +34,7 @@ include "includes/pageParts/header.inc.php";
         </div>
 
         <div>
-            <img src="images/about/amadou.jpg" alt="Photo d'Amadou">
+            <img src="images/about/amadou.jpg" alt="Photo d'Amadou"/>
             <h3>Amadou Bawol</h3>
             <p>
                 Avides de savoir et passionné par les défis techniques,

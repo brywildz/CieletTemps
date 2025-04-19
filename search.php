@@ -1,13 +1,15 @@
 <?php
+$title = "Prévisions";
+$metaDesc ="Recherchez la météo de n'importe quelle ville française par nom ou code postal, avec des prévisions détaillées.";
+$metaKeywords ="météo, recherche, ville, code postal, prévisions météo, localisation, Ciel et Temps";
 $css = "search.css";
 $css2 = "meteo.css";
-include "includes/functions/functions.inc.php";
+include "includes/functions/functionsGlobal.php";
 include "includes/functions/functionRanking.php";
 
 if (isset($_GET["city"]) && $_GET["city"] != null) {
     setcookie("derniere_ville", $_GET["city"], time() + 60 * 60 * 24 * 7);
 }
-$title = "Prévisions";
 include "includes/pageParts/header.inc.php";
 ?>
 
@@ -80,7 +82,6 @@ include "includes/pageParts/header.inc.php";
         </div>
 
     </section>
-</section>
 
 <?php endif; ?>
 
@@ -93,6 +94,7 @@ include "includes/pageParts/header.inc.php";
         echo printForecast($forecastTab, $day);
     }
 }?>
+</section>
 
 <?php
 include "includes/pageParts/footer.inc.php";

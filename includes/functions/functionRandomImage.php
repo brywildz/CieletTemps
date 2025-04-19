@@ -31,7 +31,7 @@ function printComment(string $img) : void
         case "clouds.webp" :
             echo "<p>☁️ Les nuages peuvent peser plusieurs tonnes.</p>
                   <p>Un nuage cumulus moyen contient plus de 500 tonnes d’eau,
-                  <br>pourtant il flotte grâce à la légèreté de l’air chaud qui le porte.</p>
+                  <br/>pourtant il flotte grâce à la légèreté de l’air chaud qui le porte.</p>
                   <p>➡️ Ce paradoxe est un excellent exemple de physique atmosphérique !</p>";
             break;
         case "hot.webp" :

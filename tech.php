@@ -1,5 +1,7 @@
 <?php
 $title = "Tech";
+$metaDesc ="Page développeur du projet : intégration de l’API NASA (image du jour), géolocalisation par IP, et outils météo avancés.";
+$metaKeywords ="développeur, API NASA, image du jour, géolocalisation, IP, outils météo, intégration";
 $css = "tech.css";
 include "includes/functions/functionsTech.php";
 include "includes/pageParts/header.inc.php";

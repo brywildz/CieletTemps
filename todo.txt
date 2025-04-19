@@ -1,241 +1,39 @@
-1) Afficher plus d'info sur la journée + les prévisions
-2) améliorer les redirection sur les clique des boutons
+1) Validateurs
+2) Mode sombre
 3) ajouter + de statistiques
 
-
-.main-footer {
-    background-color: #f5f5f5;
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
-    border-top: 1px solid #ccc;
-    flex-wrap: wrap;
+html valide {
+page d'accueil
+page de recherche
+page de recherche avec contenu
+page de carte
+page carte meteo + form dep + form ville + contenu + prévision 1 jour/5 jours
+page de statistiques
+page a propos
+page cookies
+page plan du site
+page mention legal
+page contact
 }
 
-.footer-content {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 4rem;
-    flex-wrap: wrap;
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+xml valide{
+page d'accueil
+page de recherche meteo
+page de recherche meteo avec contenu
+page carte meteo + form dep + form ville + contenu + prévision 1 jour/5 jours
+page statistiques
+page a propos
+page cookie
+page sitemap
+page mention legales
+page contact
 }
 
-.footer-column {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    min-width: 200px;
+css valide{
+tout
 }
 
-.footer-column h4,
-.footer-column ul {
-    margin: 0;
-    padding: 0;
-}
+documentation doxygen
+validation html avec les code sources
+mode sombre
 
-.footer-column ul {
-    list-style: none;
-    margin-top: 0.5rem;
-}
-
-.footer-column li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-column a {
-    text-decoration: none;
-    color: #333;
-    transition: color 0.2s;
-    padding-left: 0;
-}
-
-.footer-column a:hover {
-    color: #48aafb;
-}
-
-.footer-bottom {
-    text-align: center;
-    font-size: 0.9rem;
-    margin-top: 2rem;
-    color: #555;
-    border-top: 1px solid #ccc;
-    padding-top: 1rem;
-}
-.classic h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.content-flex {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 50px;
-    padding: 0 2rem;
-}
-
-.classic h3 {
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-}
-
-.classic ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.classic ul li {
-    margin-bottom: 0.5rem;
-}
-
-.classic ul li a {
-    color: #48aafb;
-    text-decoration: none;
-}
-
-.classic ul li a:hover {
-    text-decoration: underline;
-}
-.footer-social img {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    display: block;
-    margin: 8px auto;
-}
-
-.sitemap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4rem;
-    padding: 2rem;
-}
-
-.sitemap-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 250px;
-    text-align: center;
-}
-
-.sitemap-column h3 {
-    margin-bottom: 0.8rem;
-    font-size: 1.3rem;
-    font-weight: bold;
-    text-align: center;
-    width: 100%;
-}
-
-
-
-
-
-
-
-
-
-<section class="meteoS" style="background-image: url('images/meteo/barre.png'); background-repeat: repeat-y;background-position: center center;background-size: auto;">
-        <h2>Prévisions sur cinq jours</h2>
-        <div class="forecast">
-            <h3>Météo du <?= $forecastTab[0]["date"] ?></h3>
-            <div class="forecast-day">
-                <div class="forecast-item">
-                    <h4>TEMPERATURE</h4>
-                    <div style="display: flex">
-                        <img src="https://openweathermap.org/img/wn/<?= $forecastTab[0]["img"] ?>@2x.png" alt="Illustration météo"/>
-                        <p style="font-size: 50px"><?= $forecastTab[0]["deg"] ?>°</p>
-                    </div>
-                    <div class="sun-details">
-                        <div>
-                            <p class="icon">🎯</p>
-                            <div style="display: block; margin-left: 8px;">
-                                <p><b><?= $forecastTab[0]["feel"] ?>°</b></p>
-                                <p style="font-size: 16px">Ressenti</p>
-                            </div>
-
-                        </div>
-                        <div>
-                            <p class="icon">🔥</p>
-                            <div style="display: block; margin-left: 8px;">
-                                <p> <b><?= $forecastTab[0]["max"] ?>°</b></p>
-                                <p style="font-size: 16px">Maximum</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="icon">💬</p>
-                            <div style="display: block; margin-left: 8px;">
-                                <p><b><?= ucfirst($forecastTab[0]["desc"]) ?></b></p>
-                                <p style="font-size: 16px">Commentaire</p>
-                            </div>
-
-                        </div>
-                        <div>
-                            <p class="icon">❄️</p>
-                            <div style="display: block; margin-left: 8px;">
-                                <p> <b><?= $forecastTab[0]["min"] ?>°</b></p>
-                                <p style="font-size: 16px">Minimum</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <img src="images/meteo/separation-line.png" alt="trait"/>
-
-                <div class="forecast-item">
-                    <h4>PRECIPITATION</h4>
-                    <div style="display: flex">
-                        <img src="images/meteo/water.png" alt="Illustration météo"/>
-                        <p style="font-size: 50px"><?= $forecastTab[0]["rain_prob"] ?>%</p>
-                    </div>
-                    <div class="sun-details">
-                        <div>
-                            <p class="icon">☁️</p>
-                            <div style="display: block; margin-left: 8px;">
-                                <p><b><?= $forecastTab[0]["clouds"] ?>%</b></p>
-                                <p style="font-size: 16px">Nuages</p>
-                            </div>
-
-                        </div>
-                        <div>
-                            <p class="icon">💨</p>
-                            <div style="display: block; margin-left: 8px;">
-                                <p> <b><?= $forecastTab[0]["wind"] ?>m/s</b></p>
-                                <p style="font-size: 16px">Vent</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="icon">💧</p>
-                            <div style="display: block; margin-left: 8px;">
-                                <p><b><?= ucfirst($forecastTab[0]["humidity"]) ?>%</b></p>
-                                <p style="font-size: 16px">Humidité</p>
-                            </div>
-
-                        </div>
-                        <div>
-                            <p class="icon">🌡️</p>
-                            <div style="display: block; margin-left: 8px;">
-                                <p> <b><?= $forecastTab[0]["pressure"] ?>hPa</b></p>
-                                <p style="font-size: 16px">Pression</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <img src="images/meteo/separation-line.png" alt="trait"/>
-
-                <div class="forecast-item">
-                    <h4>VISIBILITÉ</h4>
-                    <div style="display: flex">
-                        <img src="images/meteo/road.png" alt="Illustration météo"/>
-                        <p style="font-size: 50px"><?= $forecastTab[0]["visibility"]?>km</p>
-                    </div>
-                    <p style="font-size: 25px"><b>Conditions</b></p>
-                    <p style="font-size: 20px"><?= $forecastTab[0]["visibility-text"] ?></p>
-                </div>
-            </div>
-        </div>
-    </section>

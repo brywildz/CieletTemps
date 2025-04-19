@@ -1,6 +1,8 @@
 <?php
-$css="contact.css";
 $title = "Contact";
+$metaDesc ="Contactez les développeurs du site Ciel &amp; Temps pour toute question, suggestion ou collaboration.";
+$metaKeywords ="contact, formulaire, support, email, développeurs, météo, projet étudiant";
+$css="contact.css";
 include "includes/pageParts/header.inc.php";
 ?>
 
@@ -14,7 +16,7 @@ include "includes/pageParts/header.inc.php";
 
     <h2>📧 Nous contacter</h2>
     <ul>
-        <li>Adresse email principale : <strong>contactCiel&temps@gmail.com</strong></li>
+        <li>Adresse email principale : <strong>contactCiel&amp;temps@gmail.com</strong></li>
         <li>Téléphone (fictif) : <strong>+33 6 12 34 56 78</strong></li>
         <li>Adresse (fictif) : <strong>33 avenue du Soleil levant, 95000 Cergy, France</strong></li>
     </ul>
@@ -23,7 +25,7 @@ include "includes/pageParts/header.inc.php";
     <ul>
         <li>🐦 <strong>Twitter / X :</strong> <a style="text-align: left" href="#">@CielEtTemps</a></li>
         <li>📸 <strong>Instagram :</strong> <a style="text-align: left" href="#">@ciel.et.temps</a></li>
-        <li>▶️ <strong>YouTube :</strong> <a style="text-align: left" href="#">Ciel&Temps-Officiel</a></li>
+        <li>▶️ <strong>YouTube :</strong> <a style="text-align: left" href="#">Ciel&amp;Temps-Officiel</a></li>
     </ul>
 
     <p>Nous sommes ouverts à toutes suggestions, collaborations ou simples messages d'encouragements 🙂</p>

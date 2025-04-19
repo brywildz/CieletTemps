@@ -3,13 +3,19 @@
 <footer class="main-footer">
     <div class="footer-content">
         <div class="footer-social">
-            <a href="https://x.com/EtTemps81032" target="_blank"><img src="images/footer/twitter.png" alt="X"></a>
-            <a href="https://www.instagram.com/cielettemps_officiel" target="_blank"><img src="images/footer/instagram.png" alt="Instagram"></a>
-            <a href="https://www.youtube.com/@CielEtTemps-Officiel" target="_blank"><img src="images/footer/youtube.png" alt="YouTube"></a>
+            <a href="https://x.com/EtTemps81032" target="_blank">
+                <img src="images/footer/twitter.png" alt="X"/>
+            </a>
+            <a href="https://www.instagram.com/cielettemps_officiel" target="_blank">
+                <img src="images/footer/instagram.png" alt="Instagram"/>
+            </a>
+            <a href="https://www.youtube.com/@CielEtTemps-Officiel" target="_blank">
+                <img src="images/footer/youtube.png" alt="YouTube"/>
+            </a>
         </div>
 
         <div class="footer-column">
-            <h4>🌐 Ciel&Temps</h4>
+            <h4>🌐 Ciel&amp;Temps</h4>
             <ul>
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="meteo.php">Prévisions météo</a></li>
@@ -21,10 +27,14 @@
         <div class="footer-column">
             <h4>⚙️ Fonctionnalités</h4>
             <ul>
-                <li><a href="../../meteo.php">Recherche par région/département</a></li>
-                <li><a href="#">Localisation automatique</a></li>
-                <li><a href="#">Analyse climatique</a></li>
-                <li><a href="#">Comparaison de données</a></li>
+                <li><a href="meteo.php#map">Recherche par région/département</a></li>
+                <li><a href="index.php#locateWeather">Localisation automatique</a></li>
+                <?php if (!isset($_GET["style"]) || $_GET["style"] == "light"): ?>
+                    <li><a href="?style=dark">Changement de mode visuel</a></li>
+                <?php else: ?>
+                    <li><a href="?style=light">Changement de mode visuel</a></li>
+                <?php endif; ?>
+                <li><a href="cookies.php">Traitement des cookies</a></li>
             </ul>
         </div>
 

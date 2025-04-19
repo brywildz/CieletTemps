@@ -1,6 +1,8 @@
 <?php
-$css="mentionLegales.css";
 $title = "Mentions légales";
+$metaDesc ="Mentions légales du site Ciel &amp; Temps, incluant informations éditeur, hébergeur, droits d’auteur et responsabilité.";
+$metaKeywords ="mentions légales, éditeur, droits, copyright, hébergement, responsabilité, site météo";
+$css="mentionLegales.css";
 include "includes/pageParts/header.inc.php";
 ?>
 
@@ -18,7 +20,7 @@ include "includes/pageParts/header.inc.php";
         <li><strong>Amadou Bawol</strong></li>
     </ul>
     <p>
-        Pour toute question ou remarque, vous pouvez nous contacter par mail à : <strong>contactCiel&temps@gmail.com</strong>
+        Pour toute question ou remarque, vous pouvez nous contacter par mail à : <strong>contactCiel&amp;temps@gmail.com</strong>
     </p>
 
     <h2>📍 Siège du projet </h2>
@@ -28,8 +30,8 @@ include "includes/pageParts/header.inc.php";
 
     <h2>🌐 Hébergement</h2>
     <p>
-        Le site <strong>Ciel&Temps</strong> est hébergé par <strong>AlwaysData</strong><br>
-        <strong>Adresse :</strong> 62 rue Tiquetonne, 75002 Paris, France<br>
+        Le site <strong>Ciel&amp;Temps</strong> est hébergé par <strong>AlwaysData</strong><br/>
+        <strong>Adresse :</strong> 62 rue Tiquetonne, 75002 Paris, France<br/>
         <strong>Site web :</strong> <a href="https://www.alwaysdata.com" target="_blank" style="text-align: left">www.alwaysdata.com</a>
     </p>
 

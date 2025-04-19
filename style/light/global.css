@@ -193,11 +193,40 @@ nav ul li a:hover {
 
 }
 
+.style-toggle{
+    margin-left: 70px;
+    display: flex;
+    gap: 0;
+    width: 310px;
+}
+
+.select-nav-cookie {
+    text-decoration: none;
+    color: #000000;
+    transition: 0.3s;
+    display: inline-block;
+    margin-left: 90px;
+    margin-top: 5px;
+
+}
+
+.select-nav-cookie::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #315b7f;
+    transition: width 0.4s ease;
+}
+
 .select-nav::after {
     content: "";
     position: absolute;
     bottom: 0;
-    left: 50%; /* commence au milieu */
+    left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 2px;

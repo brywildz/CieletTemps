@@ -1,5 +1,7 @@
 <?php
 $title = "Statistiques";
+$metaDesc ="Accédez aux statistiques météo détaillées : températures, précipitations, tendances climatiques régionales et nationales.";
+$metaKeywords ="statistiques météo, températures, précipitations, tendances climatiques, analyse, météo France";
 $css = "stats.css";
 include "includes/functions/functionStats.php";
 include "includes/functions/functionRanking.php";

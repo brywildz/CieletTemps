@@ -152,25 +152,33 @@ function getWeeklyWeather(array $coo){
 function buildSelect($tab, $type): string
 {
     if($type == "department"){
-        $select = "<form method='GET' action='meteo.php#weather'><br>
-    <label for='".$type."'>Choisissez un "."département.</label><br><select class='custom-select' name='".$type."'id='".$type."'>";
+        $select = "<form method='GET' action='meteo.php#weather' class='form-meteo'>
+    <label style='font-size: 20px' for='".$type."'>Choisissez un département.</label>
+    <select class='custom-select' name='".$type."' id='".$type."'>
+    ";
     }
     else{
-        $select = "<form method='GET' action='meteo.php#weather'><br>
-    <label for='".$type."'>Choisissez une "."ville.</label><br><select class='custom-select' name='".$type."'id='".$type."'>";
+        $select = "<form method='GET' action='meteo.php#weather' class='form-meteo'>
+    <label style='font-size: 20px' for='".$type."'>Choisissez une ville.</label>
+    <select class='custom-select' name='".$type."' id='".$type."'>
+    ";
     }
     $tabLength = count($tab);
     for($i=0; $i<$tabLength; $i++){
         $city = htmlspecialchars($tab[$i][1]);
         $postal = htmlspecialchars($tab[$i][0]);
-        $select.='<br><option value="' . $city . '">' . $postal . " - ". $city ."</option>";
+        $select.='<option value="' . $city . '">' . $postal . " - ". $city ."</option>
+        ";
     }
-    $select.="<br></select><br>";
-    $select.="<button class='search-button' type='submit'>Sélectionner</button>";
+    $select.="</select>
+    ";
+    $select.="<button class='search-button' type='submit'>Sélectionner</button>
+    </form>";
     return $select;
 }
 
 function getLocalisation(string $insee){
+    try {
     $url1 = "https://geo.api.gouv.fr/communes/".$insee."?fields=nom,centre";
     $context = stream_context_create([
         "http" =>
@@ -179,13 +187,20 @@ function getLocalisation(string $insee){
     $data = @file_get_contents($url1, false ,$context);
     if($data === false){
         $city_cp = getVille_Cp($insee);
-        $url2 = "https://api-adresse.data.gouv.fr/search/?q=".urlencode($city_cp)."&limit=1";
-        $data = file_get_contents($url2);
+        if($city_cp != null){
+            return null;
+        }
+        $url2 = "https://api-adresse.data.gouv.fr/search/?q=".@urlencode($city_cp)."&limit=1";
+        $data = @file_get_contents($url2);
         $result = json_decode($data, true);
         return $result["features"][0]["geometry"]["coordinates"];
     }
     $result = json_decode($data, true);
     return $result["centre"]["coordinates"];
+    }
+    catch (Throwable $c){
+        return null;
+    }
 }
 
 function printForecastAll(array $forecastTab): string

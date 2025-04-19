@@ -1,5 +1,7 @@
 <?php
 $title = "Plan du site";
+$metaDesc ="Plan du site Ciel &amp; Temps : navigation simplifiée entre toutes les sections, services et fonctionnalités.";
+$metaKeywords ="plan du site, sitemap, navigation, structure, pages, sections, Ciel &amp; Temps";
 $css="sitemap.css";
 include "includes/pageParts/header.inc.php";
 ?>
