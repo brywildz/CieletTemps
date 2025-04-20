@@ -1,4 +1,9 @@
 <?php
+/**
+ * @file functionRandomImage.php
+ * Fonctions concernant l'importation d'une image aléatoire et ses couleurs
+ */
+
 declare(strict_types=1);
 
 /**

@@ -9,6 +9,12 @@
     color: #E0E0E0;
 }
 
+.classic p{
+    color: #E0E0E0;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
 a{
     color: #5eaee4;
 }
@@ -21,10 +27,4 @@ h1{
     margin-bottom: 20px;
     font-size: 40px;
     font-family: Inter, serif;
-}
-
-p{
-    color: #E0E0E0;
-    font-size: 18px;
-    margin-bottom: 20px;
 }

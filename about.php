@@ -1,7 +1,28 @@
 <?php
+/**
+ * @file about.php
+ * Page concernant les informations des auteurs du site
+ */
+
+/**
+ * Titre de la page actuelle, utilisé dans la balise <title>
+ * @var $title
+ */
 $title = "À propos";
+/**
+ * La métadonnée de description
+ * @var $metaDesc
+ */
 $metaDesc ="Découvrez les objectifs, la démarche et l’équipe derrière Ciel &amp; Temps, projet universitaire en informatique.";
+/**
+ * La Métadonnée pour les mots clés
+ * @var $metaKeywords
+ */
 $metaKeywords ="à propos, projet, étudiants, L2 informatique, CY Cergy, équipe, présentation";
+/**
+ * Feuille de style de la page
+ * @var $css
+ */
 $css = "about.css";
 include "includes/pageParts/header.inc.php";
 ?>

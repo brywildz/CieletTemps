@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file functionsWeather.php
+ * Fonctions utile à la manipulation des données météorologique ou à leurs obtentions.
+ */
 
 declare(strict_types=1);
 
@@ -319,7 +323,7 @@ function getLocalisation(?string $insee){
  */
 function printWeatherDay(array $dayWeatherTab) : string
 {
-    $s = '<article style="text-align: center; justify-content: center" id="weatherDay"><h2 style="margin: 20px auto 20px auto">Previsions de la journée</h2>';
+    $s = '<article style="text-align: center; justify-content: center" id="weatherDay"><h2 style="margin: 20px auto 20px auto">Prévisions de la journée</h2>';
     $s.='<div class="weatherDay">';
     for($i=0; $i<5; $i++){
         $s.="<div class='weatherDayItem'>";

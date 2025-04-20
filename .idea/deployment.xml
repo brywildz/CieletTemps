@@ -6,7 +6,7 @@
       <paths name="ALWAYSDATA">
         <serverdata>
           <mappings>
-            <mapping deploy="/www/projet" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

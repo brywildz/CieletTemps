@@ -8,6 +8,11 @@
     padding: 40px;
 }
 
+.classic p{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
 h1{
     text-align: center;
     margin-top: 10px;
@@ -18,11 +23,6 @@ h1{
 
 h2{
     margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-p{
-    font-size: 18px;
     margin-bottom: 20px;
 }
 

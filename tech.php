@@ -1,7 +1,28 @@
 <?php
+/**
+ * @file tech.php
+ * Page développeur
+ */
+
+/**
+ * Titre de la page actuelle, utilisé dans la balise <title>
+ * @var $title
+ */
 $title = "Tech";
+/**
+ * La métadonnée de description
+ * @var $metaDesc
+ */
 $metaDesc ="Page développeur du projet : intégration de l’API NASA (image du jour), géolocalisation par IP, et outils météo avancés.";
+/**
+ * La Métadonnée pour les mots clés
+ * @var $metaKeywords
+ */
 $metaKeywords ="développeur, API NASA, image du jour, géolocalisation, IP, outils météo, intégration";
+/**
+ * Feuille de style de la page
+ * @var $css
+ */
 $css = "tech.css";
 include "includes/functions/functionsTech.php";
 include "includes/pageParts/header.inc.php";

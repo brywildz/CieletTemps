@@ -1,7 +1,28 @@
 <?php
+/**
+ * @file cookies.php
+ * Page concernant la manipulations des cookies
+ */
+
+/**
+ * Titre de la page actuelle, utilisé dans la balise <title>
+ * @var $title
+ */
 $title = "Cookies";
+/**
+ * La métadonnée de description
+ * @var $metaDesc
+ */
 $metaDesc ="Gérez vos préférences de cookies sur le site Ciel &amp; Temps : analyse, navigation, tiers. Respect de votre vie privée.";
+/**
+ * La Métadonnée pour les mots clés
+ * @var $metaKeywords
+ */
 $metaKeywords ="cookies, consentement, gestion des données, confidentialité, RGPD, préférences";
+/**
+ * Feuille de style de la page
+ * @var $css
+ */
 $css = "cookies.css";
 include "includes/pageParts/header.inc.php";
 include "includes/functions/functionsGlobal.php";
@@ -10,7 +31,12 @@ $deleted = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reset_cookie'])) {
     deleteCookies(); // depuis functionsGlobal.php
-    $deleted = true;
+    /**
+     * Booléen indiquant si les cookies ont bien été supprimé
+     * @var $deleted
+     */
+    header("Location: cookies.php?deleted=1");
+    exit;
 }
 ?>
 
@@ -33,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reset_cookie'])) {
             ?>
         </ul>
 
-        <?php if ($deleted): ?>
+        <?php if (isset($_GET['deleted'])): ?>
             <p style="color: green;">✅ Cookies supprimés avec succès.</p>
         <?php endif; ?>
 

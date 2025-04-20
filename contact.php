@@ -1,7 +1,28 @@
 <?php
+/**
+ * @file contact.php
+ * Page de répertoriant les différents contact du site
+ */
+
+/**
+ * Titre de la page actuelle, utilisé dans la balise <title>
+ * @var $title
+ */
 $title = "Contact";
+/**
+ * La métadonnée de description
+ * @var $metaDesc
+ */
 $metaDesc ="Contactez les développeurs du site Ciel &amp; Temps pour toute question, suggestion ou collaboration.";
+/**
+ * La Métadonnée pour les mots clés
+ * @var $metaKeywords
+ */
 $metaKeywords ="contact, formulaire, support, email, développeurs, météo, projet étudiant";
+/**
+ * Feuille de style de la page
+ * @var $css
+ */
 $css="contact.css";
 include "includes/pageParts/header.inc.php";
 ?>
@@ -21,11 +42,11 @@ include "includes/pageParts/header.inc.php";
         <li>Adresse (fictif) : <strong>33 avenue du Soleil levant, 95000 Cergy, France</strong></li>
     </ul>
 
-    <h2>📱 Suivez-nous sur les réseaux sociaux pour suivre en direct notre actualités </h2>
+    <h2>📱 Suivez-nous sur les réseaux sociaux pour suivre en direct nos actualités </h2>
     <ul>
-        <li>🐦 <strong>Twitter / X :</strong> <a style="text-align: left" href="#">@CielEtTemps</a></li>
-        <li>📸 <strong>Instagram :</strong> <a style="text-align: left" href="#">@ciel.et.temps</a></li>
-        <li>▶️ <strong>YouTube :</strong> <a style="text-align: left" href="#">Ciel&amp;Temps-Officiel</a></li>
+        <li>🐦 <strong>Twitter / X :</strong> <a style="text-align: left" href="https://x.com/EtTemps81032" target="_blank">@CielEtTemps</a></li>
+        <li>📸 <strong>Instagram :</strong> <a style="text-align: left" href="https://www.instagram.com/cielettemps_officiel" target="_blank">@ciel.et.temps</a></li>
+        <li>▶️ <strong>YouTube :</strong> <a style="text-align: left" href="https://www.youtube.com/@CielEtTemps-Officiel" target="_blank">Ciel&amp;Temps-Officiel</a></li>
     </ul>
 
     <p>Nous sommes ouverts à toutes suggestions, collaborations ou simples messages d'encouragements 🙂</p>

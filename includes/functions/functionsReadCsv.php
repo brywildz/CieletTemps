@@ -1,4 +1,9 @@
 <?php
+/**
+ * @file functionReadCsv.php
+ * Fonction concérnant la lecture de diverses fichiers CSV.
+ */
+
 
 declare(strict_types=1);
 

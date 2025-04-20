@@ -1,7 +1,28 @@
 <?php
-$title = "Prévisions";
+/**
+ * @file meteo.php
+ * Page de prévisions météo via carte interactive
+ */
+
+/**
+ * Titre de la page actuelle, utilisé dans la balise <title>
+ * @var $title
+ */
+$title = "Carte interactive";
+/**
+ * La métadonnée de description
+ * @var $metaDesc
+ */
 $metaDesc ="Consultez la météo en France grâce à notre carte interactive intuitive, région par région, en temps réel.";
+/**
+ * La Métadonnée pour les mots clés
+ * @var $metaKeywords
+ */
 $metaKeywords ="météo, carte interactive, prévisions, France, régions, géolocalisation, météo France";
+/**
+ * Feuille de style de la page
+ * @var $css
+ */
 $css = "meteo.css";
 include "includes/functions/functionsGlobal.php";
 include "includes/functions/functionRanking.php";
@@ -92,10 +113,30 @@ include "includes/pageParts/header.inc.php";
 if (isset($_GET["region"]) && $_GET["region"] != null) {
     $region = $_GET["region"];
 }
+/**
+ * Formulaire de la ville ou du département selon les paramètre de l'URL
+ * @var $form
+ */
 $form = traitementGET();
+/**
+ * Tableau des informations météos de l'instant, des prévisions de la journée et des prochains jours
+ * @var $weatherAndForecast
+ */
 $weatherAndForecast = traitementMeteo();
+/**
+ * Tableau des informations de l'instant
+ * @var $weatherTab
+ */
 $weatherTab = $weatherAndForecast[0];
+/**
+ * Tableau des prévisions météo des prochains jours
+ * @var $forecastTab
+ */
 $forecastTab = $weatherAndForecast[1];
+/**
+ * Tableau des prévisions météo de la journée
+ * @var $dayWeatherTab
+ */
 $dayWeatherTab = $weatherAndForecast[2];
 if($weatherTab["cond"]){
     $h2 = "Météo actuelle";

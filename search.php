@@ -1,8 +1,33 @@
 <?php
-$title = "Prévisions";
+/**
+ * @file search.php
+ * Page de prévisions météo via recherche textuelles
+ */
+
+/**
+ * Titre de la page actuelle, utilisé dans la balise <title>
+ * @var $title
+ */
+$title = "Recherche";
+/**
+ * La métadonnée de description
+ * @var $metaDesc
+ */
 $metaDesc ="Recherchez la météo de n'importe quelle ville française par nom ou code postal, avec des prévisions détaillées.";
+/**
+ * La Métadonnée pour les mots clés
+ * @var $metaKeywords
+ */
 $metaKeywords ="météo, recherche, ville, code postal, prévisions météo, localisation, Ciel et Temps";
+/**
+ * Feuille de style de la page
+ * @var $css
+ */
 $css = "search.css";
+/**
+ * 2e Feuille de style de la page
+ * @var $css2
+ */
 $css2 = "meteo.css";
 include "includes/functions/functionsGlobal.php";
 include "includes/functions/functionRanking.php";
@@ -14,11 +39,11 @@ include "includes/pageParts/header.inc.php";
 ?>
 
 <section class="search-section">
-        <h1 class="search-h1">🌤️ Indiquez le nom d'une ville</h1>
+        <h1 class="search-h1">Saisissez une ville</h1>
 
     <form class="search-form" action="search.php" method="get">
         <label for="city" class="visually-hidden">Rechercher une ville</label>
-        <input type="text" name="city" id="city" class="search-input" placeholder="Rechercher..." />
+        <input type="text" name="city" id="city" class="search-input" placeholder="Rechercher..." style="font-size: 20px" />
         <button type="submit" class="search-button">➔</button>
     </form>
     <?php if (isset($_COOKIE["derniere_ville"]) && $_COOKIE["derniere_ville"] != null && !isset($_GET["city"])):?>
@@ -41,7 +66,7 @@ include "includes/pageParts/header.inc.php";
     <section class="meteoSearch" id="weather">
         <?php if ($weatherTab["cond"] !== true && $weatherTab["cond"] == "introuvable"):?>
             <h2>Résultat</h2>
-            <p style="font-size: 30px; color: red; text-align: center; margin-top: 50px">Notre système ne permet par l'affichage des données météorologiques hors France</p>
+            <p style="font-size: 30px; color: #000000; text-align: center; margin-top: 50px">Notre système ne permet par l'affichage des données météorologiques hors France</p>
         <?php elseif ($weatherTab["cond"] && $forecastTab["cond"]): ?>
         <?php refreshCsv($weatherTab["city"]) ?>
         <h2 style="text-align: left; font-size: 18px"><b>Météo <?= $_GET["city"] ?>

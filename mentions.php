@@ -1,7 +1,28 @@
 <?php
+/**
+ * @file mentions.php
+ * Page concernant les mentions légales
+ */
+
+/**
+ * Titre de la page actuelle, utilisé dans la balise <title>
+ * @var $title
+ */
 $title = "Mentions légales";
+/**
+ * La métadonnée de description
+ * @var $metaDesc
+ */
 $metaDesc ="Mentions légales du site Ciel &amp; Temps, incluant informations éditeur, hébergeur, droits d’auteur et responsabilité.";
+/**
+ * La Métadonnée pour les mots clés
+ * @var $metaKeywords
+ */
 $metaKeywords ="mentions légales, éditeur, droits, copyright, hébergement, responsabilité, site météo";
+/**
+ * Feuille de style de la page
+ * @var $css
+ */
 $css="mentionLegales.css";
 include "includes/pageParts/header.inc.php";
 ?>

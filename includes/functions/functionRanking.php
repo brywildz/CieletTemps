@@ -1,4 +1,9 @@
 <?php
+/**
+ * @file functionRanking.php
+ * Fonctions gérant le classement des villes les plus consultées du site
+ */
+
 declare(strict_types=1);
 /**
  * Rafraichit le fichier serveur des villes consultés.

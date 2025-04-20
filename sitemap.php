@@ -1,7 +1,28 @@
 <?php
+/**
+ * @file sitemap.php
+ * Page indiquant le plan du site
+ */
+
+/**
+ * Titre de la page actuelle, utilisé dans la balise <title>
+ * @var $title
+ */
 $title = "Plan du site";
+/**
+ * La métadonnée de description
+ * @var $metaDesc
+ */
 $metaDesc ="Plan du site Ciel &amp; Temps : navigation simplifiée entre toutes les sections, services et fonctionnalités.";
+/**
+ * La Métadonnée pour les mots clés
+ * @var $metaKeywords
+ */
 $metaKeywords ="plan du site, sitemap, navigation, structure, pages, sections, Ciel &amp; Temps";
+/**
+ * Feuille de style de la page
+ * @var $css
+ */
 $css="sitemap.css";
 include "includes/pageParts/header.inc.php";
 ?>

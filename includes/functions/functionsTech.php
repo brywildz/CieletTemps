@@ -1,4 +1,9 @@
 <?php
+/**
+ * @file functionsTech.php
+ * Fonction utiles à la pages Tech
+ */
+
 declare(strict_types=1);
 /**
  * Fonction qui renvoie un tableau (initialement en JSON) traité

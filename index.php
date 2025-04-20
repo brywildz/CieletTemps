@@ -1,14 +1,36 @@
 <?php
+/**
+ * @file index.php
+ * Page d'accueil de Ciel&Temps
+ */
+
+/**
+ * Titre de la page actuelle, utilisé dans la balise <title>
+ * @var $title
+ */
 $title = "Accueil";
+/**
+ * La métadonnée de description
+ * @var $metaDesc
+ */
 $metaDesc = "Ciel &amp; Temps est un site météo interactif permettant de consulter les prévisions en France grâce à une carte interactive, 
 une recherche par ville et des statistiques détaillées.";
+/**
+ * La Métadonnée pour les mots clés
+ * @var $metaKeywords
+ */
 $metaKeywords = "météo, carte interactive, prévisions météo, géolocalisation, statistiques météo, Ciel et Temps, Dylan Manseri, Amadou Bawol";
+/**
+ * Feuille de style de la page
+ * @var $css
+ */
 $css = "index.css";
 include "includes/pageParts/header.inc.php";
 include "includes/functions/functionRanking.php";
 include "includes/functions/functionsGlobal.php";
 include "includes/functions/functionsTech.php";
 include "includes/functions/functionRandomImage.php";
+hitAndRefresh(true);
 ?>
     <section class="accueil" id="accueil">
         <div class="title">
@@ -17,9 +39,17 @@ include "includes/functions/functionRandomImage.php";
         </div>
         <div class="locate-info" id="locateWeather">
             <?php
+            /**
+             * Coordonées GPS de l'utilisateurs
+             * @var $geoJson
+             */
             $geoJson = getPositionJSON();
             //list($latitude, $longitude) = explode(",", $geoJson["loc"]);
             if(isset($geoJson["city"])){
+                /**
+                 * Coordonnées de la ville géolocalisé
+                 * @var $coo
+                 */
                 $coo = getLocalisation(getInseeCode($geoJson["city"]));
             }
             else{
@@ -36,7 +66,15 @@ include "includes/functions/functionRandomImage.php";
             }
             else{
                 $city = $geoJson["city"];
+                /**
+                 * Température de la ville géolocalisée
+                 * @var $temp
+                 */
                 $temp = $weather["main"]["temp"];
+                /**
+                 * Illustration de la météo de la ville géolocalisée
+                 * @var $icon
+                 */
                 $icon = $weather["weather"][0]["icon"];
                 $desc = $weather["weather"][0]["description"];
             }
@@ -76,6 +114,10 @@ include "includes/functions/functionRandomImage.php";
     </p>
 </section>
 <?php
+/**
+ * Image aléatoire affiché
+ * @var $img
+ */
 $img = getRandomImage();
 $color = getColorFor($img, $styleName);
 ?>

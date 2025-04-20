@@ -1,3 +1,9 @@
+<?php
+/**
+ * @file footer.inc.php
+ * Footer de toute les page du site
+ */
+?>
 
 </main>
 <footer class="main-footer">

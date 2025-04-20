@@ -8,15 +8,15 @@
     padding: 40px;
 }
 
+.classic p{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
 h1{
     text-align: center;
     margin-top: 10px;
     margin-bottom: 20px;
     font-size: 40px;
     font-family: Inter, serif;
-}
-
-p{
-    font-size: 18px;
-    margin-bottom: 20px;
 }

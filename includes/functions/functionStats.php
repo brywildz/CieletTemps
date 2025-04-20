@@ -1,4 +1,9 @@
 <?php
+/**
+ * @file functionsStats.php
+ * Fonctions utiles aux statistiques de la pages stats.php
+ */
+
 declare(strict_types=1);
 
 /**

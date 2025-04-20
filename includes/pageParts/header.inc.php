@@ -1,3 +1,10 @@
+<?php
+/**
+ * @file header.inc.php
+ * Header de toute les page du site
+ */
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>

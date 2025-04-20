@@ -4,6 +4,7 @@ $metaDesc ="Accédez aux statistiques météo détaillées : températures, pré
 $metaKeywords ="statistiques météo, températures, précipitations, tendances climatiques, analyse, météo France";
 $css = "stats.css";
 include "includes/functions/functionStats.php";
+include "includes/functions/functionsGlobal.php";
 include "includes/functions/functionRanking.php";
 include "includes/pageParts/header.inc.php";
 ?>
@@ -19,6 +20,10 @@ include "includes/pageParts/header.inc.php";
         $tabRanking = getRankingCitiesCsv();
         echo showRanking($tabRanking);
         ?>
+
+        <h2>Nombre de visiteurs de notre site</h2>
+        <p>Pour cette statistique, nous nous basons sur le nombre de rafraichissements de la page d'accueil de notre site par un nouvel utilisateur.</p>
+        <p style="margin-top: 50px; text-align: center; font-size: 60px"><?php echo hitAndRefresh(false)?></p>
     </section>
 
 

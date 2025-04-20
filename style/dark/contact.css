@@ -9,6 +9,12 @@
     color: #E0E0E0;
 }
 
+.classic p{
+    color: #E0E0E0;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
 h1{
     color: #E0E0E0;
     text-align: center;
@@ -21,12 +27,6 @@ h1{
 h2{
     color: #E0E0E0;
     margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-p{
-    color: #E0E0E0;
-    font-size: 18px;
     margin-bottom: 20px;
 }
 

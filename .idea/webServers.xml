@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="6cb299fd-b23e-4a3a-af56-2214b0662b10" name="ALWAYSDATA" url="https://manseri.alwaysdata.net/">
-        <fileTransfer accessType="FTPS" host="ftp-manseri.alwaysdata.net" port="21">
+        <fileTransfer rootFolder="/www" accessType="FTPS" host="ftp-manseri.alwaysdata.net" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
