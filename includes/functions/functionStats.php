@@ -1,9 +1,15 @@
 <?php
 declare(strict_types=1);
+
+/**
+ * Retourne une chaine de caractère de l'histogramme des villes les plus consulté sur notre site
+ * @param array|null $rankingTab le classement sous forme de tableau
+ * @return string
+ */
 function showRanking(?array $rankingTab) : string
 {
     $rankingTab = array_slice($rankingTab, 0, 5, true);
-    $s = "<div class='graph'><h3 style='text-align: center'>Les villes les plus consultées</h3>";
+    $s = "<div class='graph'>";
     if(empty($rankingTab)){
         $s .= "<p style='text-align: center'>Aucune ville n'a été consulté pour le moment</p>";
         return $s;

@@ -14,7 +14,7 @@ include "includes/pageParts/header.inc.php";
 ?>
 
 <section class="search-section">
-        <h1>🌤️ Indiquez le nom d'une ville</h1>
+        <h1 class="search-h1">🌤️ Indiquez le nom d'une ville</h1>
 
     <form class="search-form" action="search.php" method="get">
         <label for="city" class="visually-hidden">Rechercher une ville</label>
@@ -33,13 +33,19 @@ include "includes/pageParts/header.inc.php";
     $weatherAndForecast = traitementMeteo();
     $weatherTab = $weatherAndForecast[0];
     $forecastTab = $weatherAndForecast[1];
+    $dayWeatherTab = $weatherAndForecast[2];
     ?>
 
-    <?php if ($weatherTab["cond"] && $forecastTab["cond"]): ?>
-    <?php refreshCsv($weatherTab["city"]) ?>
+
+    <?php if (isset($_GET['city'])):?>
     <section class="meteoSearch" id="weather">
-        <h3 style="text-align: left; color: white"><b>Météo <?= $_GET["city"] ?>
-                : <?= ucfirst($weatherTab["desc"]) ?></b></h3>
+        <?php if ($weatherTab["cond"] !== true && $weatherTab["cond"] == "introuvable"):?>
+            <h2>Résultat</h2>
+            <p style="font-size: 30px; color: red; text-align: center; margin-top: 50px">Notre système ne permet par l'affichage des données météorologiques hors France</p>
+        <?php elseif ($weatherTab["cond"] && $forecastTab["cond"]): ?>
+        <?php refreshCsv($weatherTab["city"]) ?>
+        <h2 style="text-align: left; font-size: 18px"><b>Météo <?= $_GET["city"] ?>
+                : <?= ucfirst($weatherTab["desc"]) ?></b></h2>
         <div class="meteo-in">
 
             <div class="meteo-info-degre">
@@ -66,14 +72,14 @@ include "includes/pageParts/header.inc.php";
             <h4>Voir les prévisions ?</h4>
             <form action="meteo.php?city=<?= $_GET['city'] ?>#forecast" method="get">
                 <label>
+                    Sélectionnez une date
                     <select name="day">
                         <option value="">Sélectionner une date ▾</option>
                         <option value="0"><?= $forecastTab[0]["date"] ?></option>
                         <option value="1"><?= $forecastTab[1]["date"] ?></option>
                         <option value="2"><?= $forecastTab[2]["date"] ?></option>
                         <option value="3"><?= $forecastTab[3]["date"] ?></option>
-                        <option value="4"><?= $forecastTab[4]["date"] ?></option>
-                        <option value="all">5 prochains jours</option>
+                        <option value="all">4 prochains jours</option>
                     </select>
                     <input type="hidden" name="city" value="<?= $_GET['city'] ?>"/>
                 </label>
@@ -83,7 +89,10 @@ include "includes/pageParts/header.inc.php";
 
     </section>
 
+            <?php echo printWeatherDay($dayWeatherTab) ?>
+
 <?php endif; ?>
+    <?php endif; ?>
 
 <?php if(isset($_GET['day'])){
     $day = $_GET['day'];

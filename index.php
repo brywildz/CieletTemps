@@ -48,7 +48,7 @@ include "includes/functions/functionRandomImage.php";
                 <?php endif;?>
                 <p style="font-size: 20px"><?= $temp ?>°C</p>
             </div>
-            <a class="see-more" href="meteo.php?city=<?= $city ?>#weather">Voir plus</a>
+            <a class="see-more" href="meteo.php?city=<?=urlencode( $city) ?>#weather">Voir plus</a>
         </div>
     </section>
 <section class="default-section" style="margin: 10% auto 10% auto">
@@ -77,7 +77,7 @@ include "includes/functions/functionRandomImage.php";
 </section>
 <?php
 $img = getRandomImage();
-$color = getColorFor($img);
+$color = getColorFor($img, $styleName);
 ?>
 <section class="learn-more" style="background-color: <?=$color[0]?>" id="info">
     <h2 class="learn-more-title" style="color: <?=$color[1] ?>">Apprenez en plus sur la nature<br/>avec notre info météo</h2>

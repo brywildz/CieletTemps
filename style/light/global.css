@@ -1,6 +1,6 @@
 .accueil{
     padding-top: 1px;
-    background-image: url('../../images/meteo/sky-background.webp');
+    background-image: url('../../images/meteo/light/sky-background.webp');
     height: 900px;
 }
 
@@ -305,15 +305,15 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     text-decoration: none;
-    font-size: 18px;
     color: #000000;
-    letter-spacing: 1px;
     background-color: #d1d1e0;
     border: none;
-    padding: 10px 15px;
+    padding: 6px 10px;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s ease;
+    width: 139px;
+    height: 39px;
 }
 .light-mode:hover {
     background-color: #4e4e57;

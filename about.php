@@ -6,9 +6,10 @@ $css = "about.css";
 include "includes/pageParts/header.inc.php";
 ?>
 
-<section class="default-section" style="background-color:white; border-radius:5px;">
-    <h1>À propos du projet</h1>
-
+<h1>À propos du projet</h1>
+<section class="default-section" style=
+"<?php if($styleName == "light") :?>background-color:white; <?php else:?> background-color:#1F1F1F; <?php endif;?> border-radius:5px;">
+    <h2>Contexte</h2>
     <p>
         Ce site a été développé dans le cadre du module <strong>Développement Web</strong> en <strong>Licence 2 Informatique</strong> à
         <strong>CY Cergy Paris Université</strong> (2024-2025).

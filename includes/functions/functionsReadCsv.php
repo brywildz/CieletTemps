@@ -3,12 +3,11 @@
 declare(strict_types=1);
 
 /**
- * Fonction qui lie le fichier csv des régions de France et qui renvoie la ligne dédié au nom de region mis en paramètre
- * Cette fonction sert à obtenir des informations spécifique sur une region sous forme de tableau
- * @param $regionName
- * @return array|false|void|null en fonction du résultat de la lecture de la fonction fgetcsv
+ * Lie le fichier csv des régions de France et renvoie le nom et le code de la région sous forme de tableau
+ * @param string $regionName nom de la région
+ * @return array|void en fonction du résultat de la lecture de la fonction fgetcsv
  */
-function getRegion($regionName){
+function getRegion(string $regionName){
     $path = "csv/regions.csv";
     $fic = fopen($path, "r");
     if($fic !== false){
@@ -23,6 +22,11 @@ function getRegion($regionName){
     }
 }
 
+/**
+ * Lie le fichier csv des départements de France et renvoie le nom et le code d'un département sous forme de tableau
+ * @param string $regionCode le code de regions du département recherché
+ * @return array en fonction du résultat de la lecture de la fonction fgetcsv
+ */
 function getDepartments(string $regionCode) : array
 {
     $path = "csv/departements.csv";
@@ -41,6 +45,11 @@ function getDepartments(string $regionCode) : array
     return $departments;
 }
 
+/**
+ * Lie le fichier csv des communes de France et renvoie le nom et le code postale d'une ville.
+ * @param string $departmentName nom du département
+ * @return array en fonction du résultat de la lecture de la fonction fgetcsv
+ */
 function getCities(string $departmentName): array
 {
     $departmentName = urldecode($departmentName);
@@ -61,6 +70,11 @@ function getCities(string $departmentName): array
     return $villes;
 }
 
+/**
+ * Lie le fichier csv des communes de France et renvoie le code INSEE d'une ville.
+ * @param ?string $cityName nom de la ville
+ * @return ?string en fonction du résultat de la lecture de la fonction fgetcsv
+ */
 function getInseeCode(?string $cityName) : ?string
 {
     if($cityName === null){
@@ -78,6 +92,11 @@ function getInseeCode(?string $cityName) : ?string
     return null;
 }
 
+/**
+ * Lie le fichier csv des communes de France et renvoie le nom et le code postale d'une ville
+ * @param string $insee code insee de la ville
+ * @return string|null en fonction de la réussite de la recherche
+ */
 function getVille_Cp(string $insee) : ?string
 {
     $path = "csv/communes.csv";

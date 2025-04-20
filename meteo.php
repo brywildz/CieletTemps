@@ -10,7 +10,7 @@ if (isset($_GET["city"]) && $_GET["city"] != null) {
 }
 include "includes/pageParts/header.inc.php";
 ?>
-<h1 style="margin-top: 40px">Prévisions météo interactive par région</h1>
+<h1 class="meteo-h1">Prévisions météo interactive par région</h1>
 <section class="meteoS">
     <h2>Carte des régions de France</h2>
     <?php if (isset($_COOKIE["derniere_ville"])): ?>
@@ -24,7 +24,7 @@ include "includes/pageParts/header.inc.php";
 
 
     <div class="map" id="map">
-        <img src="images/meteo/carte-dom.webp" usemap="#image-map" alt="Carte des départements d'Outre mer"/>
+        <img src="images/meteo/<?= $styleName ?>/carte-dom.webp" usemap="#image-map" alt="Carte des départements d'Outre mer"/>
 
         <map name="image-map">
             <area target="_self" alt="Guadeloupe" title="Guadeloupe" href="meteo.php?region=Guadeloupe" coords="6,3,144,146" shape="rect"/>
@@ -96,6 +96,7 @@ $form = traitementGET();
 $weatherAndForecast = traitementMeteo();
 $weatherTab = $weatherAndForecast[0];
 $forecastTab = $weatherAndForecast[1];
+$dayWeatherTab = $weatherAndForecast[2];
 if($weatherTab["cond"]){
     $h2 = "Météo actuelle";
 }
@@ -117,7 +118,7 @@ else{
     <?php if ($weatherTab["cond"] && $forecastTab["cond"]):?>
         <?php refreshCsv($weatherTab["city"])?>
         <div class="meteo">
-            <h3 style="text-align: left; color: white"><b>Météo <?= $_GET["city"] ?> : <?=ucfirst($weatherTab["desc"])?></b></h3>
+            <h3 style="text-align: left"><b>Météo <?= $_GET["city"] ?> : <?=ucfirst($weatherTab["desc"])?></b></h3>
             <div class="meteo-in">
 
                 <div class="meteo-info-degre">
@@ -144,22 +145,22 @@ else{
                 <h4>Voir les prévisions ?</h4>
                 <form  action="meteo.php?city=<?= $_GET['city'] ?>#forecast" method="get">
                     <label>
+                        Sélectionner une date :
                         <select name="day">
-                            <option value="">Sélectionner une date ▾</option>
-                            <option value="0"><?= $forecastTab[0]["date"] ?></option>
-                            <option value="1"><?= $forecastTab[1]["date"] ?></option>
-                            <option value="2"><?= $forecastTab[2]["date"] ?></option>
-                            <option value="3"><?= $forecastTab[3]["date"] ?></option>
-                            <option value="4"><?= $forecastTab[4]["date"] ?></option>
-                            <option value="all">5 prochains jours</option>
+                            <option value="0"><?= $forecastTab[0]["date"] ?> &#9660;</option>
+                            <option value="1"><?= $forecastTab[1]["date"] ?> </option>
+                            <option value="2"><?= $forecastTab[2]["date"] ?> </option>
+                            <option value="3"><?= $forecastTab[3]["date"] ?> </option>
+                            <option value="all">4 prochains jours</option>
                         </select>
-                        <input type="hidden" name="city" value="<?= $_GET['city'] ?>"/>
                     </label>
+                    <input type="hidden" name="city" value="<?= $_GET['city'] ?>"/>
                     <button type="submit">Valider</button>
                 </form>
             </div>
         </div>
 
+        <?php echo printWeatherDay($dayWeatherTab) ?>
     <?php endif; ?>
 </section>
 <?php endif;?>

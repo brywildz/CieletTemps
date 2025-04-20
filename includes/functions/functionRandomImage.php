@@ -1,16 +1,31 @@
 <?php
 declare(strict_types=1);
 
-function getRandomImage() : mixed
+/**
+ * Retourne une image aléatoire parmi celle présente dans le répertoire imageAléatoire
+ *
+ * Cette fonction parcourt le répertoire imageAléatoire et stocke ses chemins dans un tableau
+ * et renvoi une valeur aléatoire de ce tableau
+ * @return string le chemin de l'image
+ */
+function getRandomImage() : string
 {
     $images = glob("images/meteo/imageAleatoire/*.webp");
     $index = array_rand($images);
     return $images[$index];
 }
 
-function getColorFor(string $img) : mixed
+
+/**
+ * Retourne les couleurs adapté à une image en fonction du style de la page
+ * @param string $img l'image
+ * @param string $style le style de la page light/dark
+ * @return array tableau contenant la couleur du texte et du cadre de l'image
+ */
+function getColorFor(string $img, string $style) : array
 {
     $name = basename($img);
+    if($style == "light"){
     switch ($name){
         case "clouds.webp" :
             return ['#d6c3af','#3c3c3c'];
@@ -22,8 +37,27 @@ function getColorFor(string $img) : mixed
             return ["#cadbe5","#1f2c38"];
     }
     return ["#2b2f3a","#f0f0f0"]; //thunder
+    }
+    else{
+        switch ($name){
+            case "clouds.webp" :
+                return ['#1b1e28','#ffe9cc'];
+            case "hot.webp" :
+                return ['#2b1e1a','#ffd9b3'];
+            case"rain.webp":
+                return ["#15221f","#cce7e3"];
+            case "snow.webp":
+                return ["#1c1f2a","#f0f2ff"];
+        }
+        return ["#0a0a1a","#cceeff"]; //thunder
+    }
 }
 
+/**
+ * Écrit le texte correspondant à l'image entrée
+ * @param string $img le chemin de l'image
+ * @return void
+ */
 function printComment(string $img) : void
 {
     $name = basename($img);

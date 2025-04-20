@@ -1,8 +1,9 @@
 <?php
 declare(strict_types=1);
 /**
- * Incrémente et retourne un compteur de "hits" (nombre de visites ou rafraîchissements)
- * stocké dans un fichier CSV 'ranking.csv'. Crée le fichier s'il n'existe pas.
+ * Rafraichit le fichier serveur des villes consultés.
+ *
+ * Incrémente la ville consulté ou crée une nouvelle valeur
  */
 function refreshCsv($cityName): void
 {
@@ -34,7 +35,10 @@ function refreshCsv($cityName): void
     fclose($handleWrite);
 }
 
-
+/**
+ * Crée le fichiers des villes consultées si il n'existe pas
+ * @return void
+ */
 function createCsv(): void
 {
     $content = ["Ville", "Valeur"];
@@ -46,6 +50,11 @@ function createCsv(): void
     fclose($handle);
 }
 
+/**
+ * Retourne le classement des villes les plus consultés du site.
+ * Parcours le le fichiers csv des villes les plus consulté et crée un tableau trié dans l'ordre croissant.
+ * @return array|null
+ */
 function getRankingCitiesCsv() : ?array{
     if(!file_exists("csv/ranking.csv")){
         return null;
@@ -62,19 +71,4 @@ function getRankingCitiesCsv() : ?array{
     }
     arsort($rankingTab);
     return $rankingTab;
-}
-
-
-
-function printRanking($ranking): void
-{
-    $top7Faveeee = array_slice($ranking, 0, 5, true);
-    $s = "<table class='normalTab'><tr><th>Classement</th><th>Ville</th><th>Nombre de consultations</th></tr>";
-    $c = 1;
-    foreach($top7Faveeee as $cle => $valeur){
-        $s .= "<tr><td>$c</td><td>$cle </td><td>$valeur</td></tr>";
-        $c++;
-    }
-    $s .= "</table>";
-    echo $s;
 }

@@ -1,19 +1,17 @@
-h1{
-    margin-bottom: 40px;
-    color: #3f3f3f;
+.search-h1{
+    color :#f0f0f0;
     font-size: 40px;
-    background-color: rgba(255, 255, 255, 0.38);
-    border-radius: 10px;
     padding: 10px;
 }
 
 h2{
-    color: #3f3f3f;
+    color: white;
 }
 
 .last-city{
     border-radius: 20px;
-    background-color: rgba(232, 232, 232, 0.6);
+    background-color: rgba(17, 17, 17, 0.6);
+    color: white;
     width: 15%;
     padding: 20px;
     margin-left: 75%;
@@ -27,11 +25,12 @@ h2{
 }
 
 .see-more{
+    display: block;
     text-decoration: none;
     font-size: 18px;
     color: #d1d1e0;
     letter-spacing: 1px;
-    background-color: #256f9a;
+    background-color: #12123a;
     border: none;
     padding: 10px 15px;
     border-radius: 8px;
@@ -39,12 +38,12 @@ h2{
     transition: 0.3s ease;
 }
 .see-more:hover {
-    background-color: #57d3ff;
+    background-color: #000000;
 }
 
 
 .search-section{
-    background-image: url('../../images/meteo/light/sky-background.webp');
+    background-image: url('../../images/meteo/dark/night-sky-background.webp');
     height: 1000px;
     display: flex;
     flex-direction: column;
@@ -104,6 +103,8 @@ h2{
     background-color: #ccc;
 }
 
+
+
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -118,13 +119,13 @@ h2{
 
 .meteoSearch{
     margin-top: 30px;
-    background-image: url('../../images/meteo/blue-background.webp');
+    background-color: #1A2A3A;
     padding : 20px;
     color: #000000;
     display: block;
     border-radius: 10px;
     align-items: center;
-    height: 425px;
+    height: 440px;
     width: 1300px;
 }
 
@@ -132,11 +133,12 @@ h2{
     display: flex;
     gap: 10px;
     justify-content: center;
+    margin-bottom: 40px;
 }
 
 .weatherDayItem{
     border-radius: 10px;
-    background: rgba(90, 147, 211, 0.69);
+    background: rgb(41, 53, 70);
     padding: 10px 10px 40px 0;
     display: flex;
     flex-direction: column;

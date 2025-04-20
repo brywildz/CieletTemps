@@ -43,7 +43,7 @@
         <?php if(isset($css2)) :?>
             <link rel="stylesheet" href="<?= $style.$css2 ?>"/>
         <?php endif; ?>
-        <link rel="stylesheet" href="style/light/footer.css"/>
+        <link rel="stylesheet" href="<?= $style ?>footer.css"/>
         <title><?= $title ?></title>
         <link rel="icon" type="image/png" href="images/header/favicon.webp" />
 </head>
@@ -51,7 +51,7 @@
     <header>
         <div class="logo">
             <a href="index.php">
-                <img src="images/header/logo-nav.webp" alt="icone du site"/>
+                <img src="images/header/<?=$styleName?>/logo-nav.webp" alt="icone du site"/>
             </a>
         </div>
         <nav>
@@ -60,10 +60,10 @@
                     <a href="index.php#accueil">Explorer ▾</a>
                     <div class="choice-list">
                             <a href="search.php">
-                            <img src="images/header/search-text.webp" alt="icone de carte"/>
+                            <img src="images/header/<?=$styleName?>/search-text.webp" alt="icone de carte"/>
                         </a>
                             <a href="meteo.php">
-                                <img src="images/header/search-map.webp" alt="icone de carte"/>
+                                <img src="images/header/<?=$styleName?>/search-map.webp" alt="icone de carte"/>
                             </a>
                     </div>
                 </li>
