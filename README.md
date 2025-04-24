@@ -67,7 +67,7 @@ Le site permet a l utilisateur de consulter la meteo locale, d explorer une cart
 
 ## Lien utile
 
-Site web :[https://manseri.alwaysdata.net/projet/index.php) (https://bawol.alwaysdata.net/index.php)
+Site web : (https://manseri.alwaysdata.net) (https://bawol.alwaysdata.net/index.php)
 Code source : (https://github.com/brywildz/ProjetMeteo)
 
 
